@@ -1,0 +1,75 @@
+name: shop_ease
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+environment:
+  sdk: ^3.6.1
+
+#----------------- packages -----------------#
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # utility packages
+
+
+  #Icons
+  iconsax: ^0.0.8
+  cupertino_icons: ^1.0.8
+
+
+  #State Management
+  get: ^4.7.2
+
+
+#----------------- ./ PACKAGES End -----------------#
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^5.0.0
+
+flutter:
+
+
+  uses-material-design: true
+
+
+
+  #----------------- LOCAL ASSETS -----------------#
+  assets:
+   - assets/logos/
+   - assets/icons/brands/
+   - assets/images/
+
+   #----------------- LOCAL FONTS -----------------#
+
+  fonts:
+      - family: Poppins
+        fonts:
+          - asset: assets/fonts/Poppins-Bold.ttf
+            weight: 800
+          - asset: assets/fonts/Poppins-Italic.ttf
+            style: italic
+          - asset: assets/fonts/Poppins-Light.ttf
+            weight: 300
+          - asset: assets/fonts/Poppins-LightItalic.ttf
+            weight: 300
+            style: italic
+          - asset: assets/fonts/Poppins-Medium.ttf
+            weight: 500
+          - asset: assets/fonts/Poppins-MediumItalic.ttf
+            weight: 500
+            style: italic
+          - asset: assets/fonts/Poppins-Regular.ttf
+            weight: 400
+          - asset: assets/fonts/Poppins-SemiBold.ttf
+            weight: 600
+          - asset: assets/fonts/Poppins-SemiBoldItalic.ttf
+            weight: 600
+            style: italic
+
+
