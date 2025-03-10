@@ -1,3 +1,5 @@
+
+import 'package:flutter/material.dart';
 import 'package:shop_ease/utils/theme/custom_theme/appbar_theme.dart';
 import 'package:shop_ease/utils/theme/custom_theme/bottom_sheet_theme.dart';
 import 'package:shop_ease/utils/theme/custom_theme/checkbox_theme.dart';
@@ -7,7 +9,6 @@ import 'package:shop_ease/utils/theme/custom_theme/outlined_button_theme.dart';
 import 'package:shop_ease/utils/theme/custom_theme/text_field_theme.dart';
 import 'package:shop_ease/utils/theme/custom_theme/text_theme.dart';
 
-import 'package:flutter/material.dart';
 
 class EAppTheme {
   EAppTheme._();
@@ -27,7 +28,6 @@ class EAppTheme {
     inputDecorationTheme: ETextFormFieldTheme.lightInputDecorationTheme,
     chipTheme: EChipTheme.lightChipTheme,
   );
-
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
