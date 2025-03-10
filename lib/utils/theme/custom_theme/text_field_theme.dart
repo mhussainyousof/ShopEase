@@ -13,7 +13,7 @@ class ETextFormFieldTheme{
     labelStyle: TextStyle().copyWith(fontSize: 14, color: Colors.black),
     hintStyle: TextStyle().copyWith(fontSize: 14, color: Colors.black),
     errorStyle: TextStyle().copyWith(fontStyle: FontStyle.normal),
-    floatingLabelStyle: TextStyle().copyWith(color: Colors.black.withOpacity(0.8)),
+      floatingLabelStyle: TextStyle().copyWith(color: Colors.black.withValues(alpha: 0.8)),
     border: OutlineInputBorder().copyWith(borderRadius: BorderRadius.circular(14),
     borderSide: BorderSide(width: 1, color: Colors.grey)
     ),
@@ -49,7 +49,7 @@ focusedErrorBorder: OutlineInputBorder().copyWith(
     labelStyle: TextStyle().copyWith(fontSize: 14, color: Colors.white),
     hintStyle: TextStyle().copyWith(fontSize: 14, color: Colors.white),
     errorStyle: TextStyle().copyWith(fontStyle: FontStyle.normal),
-    floatingLabelStyle: TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
+    floatingLabelStyle: TextStyle().copyWith(color: Colors.white.withValues(alpha: 0.8)),
 
 
     border: OutlineInputBorder().copyWith(borderRadius: BorderRadius.circular(14),

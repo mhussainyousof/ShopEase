@@ -30,8 +30,8 @@ class ECheckBoxTheme{
 
   static CheckboxThemeData darkCheckboxTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-    checkColor: MaterialStateProperty.resolveWith((state){
-      if(state.contains(MaterialState.selected)){
+    checkColor: WidgetStateProperty.resolveWith((state){
+      if(state.contains(WidgetState.selected)){
         return Colors.white;
       }else{
         return Colors.black;
