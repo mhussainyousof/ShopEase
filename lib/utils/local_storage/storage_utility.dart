@@ -1,30 +1,52 @@
 import 'package:get_storage/get_storage.dart';
 
-class ELocalStorage{
-  static final ELocalStorage _instance = ELocalStorage._internal();
+class TLocalStorage {
+  static final TLocalStorage _instance = TLocalStorage._internal();
 
-  factory ELocalStorage(){
+  factory TLocalStorage() {
     return _instance;
   }
 
-  ELocalStorage._internal();
+  TLocalStorage._internal();
 
   final _storage = GetStorage();
 
-  Future<void> saveData<T>(String key, T value) async{
+  // Generic method to save data
+  Future<void> saveData<T>(String key, T value) async {
     await _storage.write(key, value);
   }
 
-  T? readData<T>(String key){
+  // Generic method to read data
+  T? readData<T>(String key) {
     return _storage.read<T>(key);
   }
 
-  Future<void> removeData<T>(String key, T value) async{
-    await _storage.remove(key );
+  // Generic method to remove data
+  Future<void> removeData(String key) async {
+    await _storage.remove(key);
   }
 
-
-  Future<void> clearAll()async{
+  // Clear all data in storage
+  Future<void> clearAll() async {
     await _storage.erase();
   }
 }
+
+
+/// *** *** *** *** *** Example *** *** *** *** *** ///
+
+// LocalStorage localStorage = LocalStorage();
+//
+// // Save data
+// localStorage.saveData('username', 'JohnDoe');
+//
+// // Read data
+// String? username = localStorage.readData<String>('username');
+// print('Username: $username'); // Output: Username: JohnDoe
+//
+// // Remove data
+// localStorage.removeData('username');
+//
+// // Clear all data
+// localStorage.clearAll();
+
