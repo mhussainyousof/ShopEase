@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shop_ease/features/authentication/controllers_onboarding/onboarding_controller.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
@@ -12,12 +13,14 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = OnBoardingController.instance;
+    // 🧠 Controller for page handling & state management
+    final controller = Get.put(OnBoardingController());
 
     return Scaffold(
       body: Stack(
         children: [
-          // 📄 PageView - Swipe able onboarding pages
+
+          // 📄 PageView - Swipable onboarding pages
           PageView(
             controller: controller.pageController,
             onPageChanged: controller.updatePageIndicator,
