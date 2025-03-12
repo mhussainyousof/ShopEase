@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:shop_ease/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 import 'package:shop_ease/utils/theme/theme.dart';
 
+import 'bindings/bindings.dart';
 import 'features/authentication/screens/signup/signup.dart';
 
 /*
@@ -25,10 +27,8 @@ class App extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
 
-      // initialBinding: GeneralBindings(),
-      home: const Scaffold(
-        body: SignupScreen(),
-      ),
+      initialBinding: GeneralBindings(),
+      home: OnBoardingScreen()
     );
   }
 }
