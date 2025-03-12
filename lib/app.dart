@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
+import 'package:shop_ease/features/authentication/screens/signup/widgets/signup.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 import 'package:shop_ease/utils/theme/theme.dart';
 
@@ -17,7 +18,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // initialBinding: GeneralBindings(),
       home: const Scaffold(
-        body: LoginScreen()
+        body: SignupScreen()
       ),
     );
   }

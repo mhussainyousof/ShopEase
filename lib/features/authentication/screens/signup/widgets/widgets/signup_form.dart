@@ -72,9 +72,9 @@ class SignupForm extends StatelessWidget {
                   suffixIcon: Icon(Iconsax.eye_slash)
               ),
             ),
-            SizedBox(height: TSizes.spaceBtwSections),
+            SizedBox(height: TSizes.spaceBtwItems),
             TermsAndConditions(),
-            SizedBox(height: TSizes.sm,),
+            SizedBox(height: TSizes.md,),
             SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: Text(TTexts.createAccount)),),
           ],
         ));
