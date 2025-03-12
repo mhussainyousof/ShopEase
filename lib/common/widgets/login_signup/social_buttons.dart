@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
-import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 
 class SocialButtons extends StatelessWidget {

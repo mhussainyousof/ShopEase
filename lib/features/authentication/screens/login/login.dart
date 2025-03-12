@@ -7,7 +7,6 @@ import 'package:shop_ease/features/authentication/screens/login/widgets/login_fo
 import 'package:shop_ease/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
-import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 /* ============================================================
    🎯 LoginScreen Widget
@@ -20,9 +19,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 🔎 Check if the current theme is Dark Mode 🌙
-    final dark = THelperFunctions.isDarkMode(context);
-
     return Scaffold(
       // 📱 Entire screen is scrollable to avoid overflow
       body: SingleChildScrollView(
