@@ -9,13 +9,18 @@ import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 
 class OnBoardingScreen extends StatelessWidget {
-  const OnBoardingScreen({super.key});
+  const OnBoardingScreen({ super.key });
+
   @override
   Widget build(BuildContext context) {
+    // 🧠 Controller for page handling & state management
     final controller = Get.put(OnBoardingController());
+
     return Scaffold(
       body: Stack(
         children: [
+
+          // 📄 PageView - Swipable onboarding pages
           PageView(
             controller: controller.pageController,
             onPageChanged: controller.updatePageIndicator,
@@ -37,11 +42,15 @@ class OnBoardingScreen extends StatelessWidget {
               ),
             ],
           ),
-           OnBoardingSkip(),
-           
+
+          // ⏭️ Skip Button (Top-Right Corner)
+          OnBoardingSkip(),
+
+          // 🔵 Dot Indicators (Bottom-Center)
           OnBoardingDotNavigation(),
-          
-          OnBoardingNextButton()
+
+          // 👉 Next Button (Bottom-Right)
+          OnBoardingNextButton(),
         ],
       ),
     );

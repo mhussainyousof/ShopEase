@@ -3,7 +3,7 @@ import 'package:shop_ease/app.dart';
 
 
 void main() async{
-  await Future.delayed(const Duration(seconds: 2));
+  await Future.delayed(const Duration(seconds: 1));
   runApp(const App());
 }
 
