@@ -40,7 +40,6 @@ class SignupScreen extends StatelessWidget {
               SignupForm(),
 
               SizedBox(height: TSizes.spaceBtwSections),
-
               // ---- Divider (OR Sign Up With) ----
               FormDivider(textDivider: TTexts.orSignUpWith.capitalize!),
 

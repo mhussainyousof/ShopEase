@@ -36,14 +36,14 @@ class LoginScreen extends StatelessWidget {
               // 📝 Login Form (Email + Password + Button)
               TLoginForm(),
 
-              SizedBox(height: TSizes.spaceBtwSections),
+
 
               // ➖ Divider with text "OR SIGN IN WITH" ➖
               FormDivider(
                 textDivider: TTexts.orSignInWith.capitalize!,
               ),
 
-              SizedBox(height: TSizes.spaceBtwSections),
+              SizedBox(height: TSizes.spaceBtwItems),
 
               // 🔗 Social Media Login Buttons (Google, Facebook, etc.)
               SocialButtons(),

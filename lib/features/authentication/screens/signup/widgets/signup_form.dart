@@ -88,7 +88,7 @@ class SignupForm extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: TSizes.spaceBtwItems),
+          // SizedBox(height: TSizes.spaceBtwItems),
 
           // ---- Terms & Conditions ----
           TermsAndConditions(),
