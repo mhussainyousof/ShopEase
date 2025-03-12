@@ -5,7 +5,7 @@ import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
-import '../../../../../../utils/constants/image_strings.dart';
+import '../../../../../utils/constants/image_strings.dart';
 
 
 class LoginHeader extends StatelessWidget {
