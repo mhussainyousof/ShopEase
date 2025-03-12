@@ -13,14 +13,13 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 🧠 Controller for page handling & state management
-    final controller = Get.put(OnBoardingController());
+    final controller = OnBoardingController.instance;
 
     return Scaffold(
       body: Stack(
         children: [
 
-          // 📄 PageView - Swipable onboarding pages
+          // 📄 PageView - Swipe able onboarding pages
           PageView(
             controller: controller.pageController,
             onPageChanged: controller.updatePageIndicator,
