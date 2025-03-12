@@ -159,7 +159,7 @@ class TImages {
   static const String masterCard = "assets/icons/payment_methods/master-card.png";
   static const String paypal = "assets/icons/payment_methods/paypal.png";
   static const String visa = "assets/icons/payment_methods/visa.png";
-  static const String paystack = "assets/icons/payment_methods/paystack.png";
+  static const String payStack = "assets/icons/payment_methods/paystack.png";
   static const String paytm = "assets/icons/payment_methods/paytm.png";
   static const String successfulPaymentIcon = "assets/icons/payment_methods/successful_payment_icon.png";
 }
