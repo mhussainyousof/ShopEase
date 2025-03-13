@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:shop_ease/common/widgets/success_screen/success_screen.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:shop_ease/features/authentication/screens/signup/verify_email.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 import 'package:shop_ease/utils/theme/theme.dart';
 
 import 'bindings/bindings.dart';
-import 'features/authentication/screens/signup/signup.dart';
-
 /*
  ╔════════════════════════════════════════╗
- ║    ✨ App by Hussian Yousof ✨          ║
+ ║    ✨ App by Hussian Yousof ✨         ║
  ║    📅 Date: 2025                       ║
  ║    🚀 Clean Code | Flutter Dev         ║
  ╚════════════════════════════════════════╝

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:shop_ease/features/authentication/screens/signup/verify_email.dart';
 import 'package:shop_ease/features/authentication/screens/signup/widgets/terms_conditions.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
@@ -100,7 +102,7 @@ class SignupForm extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                // TODO: Implement sign-up functionality
+                Get.to(()=>VerifyEmailScreen());
               },
               child: Text(TTexts.createAccount),
             ),
