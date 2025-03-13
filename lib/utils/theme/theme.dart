@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_ease/utils/theme/widget_themes/appbar_theme.dart';
+import 'package:shop_ease/utils/theme/widget_themes/bottom_navigation.dart';
 import 'package:shop_ease/utils/theme/widget_themes/bottom_sheet_theme.dart';
 import 'package:shop_ease/utils/theme/widget_themes/checkbox_theme.dart';
 import 'package:shop_ease/utils/theme/widget_themes/chip_theme.dart';
@@ -28,6 +29,7 @@ class TAppTheme {
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
+    navigationBarTheme: TNavigationBarTheme.lightNavigationBarTheme
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -45,5 +47,6 @@ class TAppTheme {
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTheme,
     inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
+    navigationBarTheme: TNavigationBarTheme.darkNavigationBarTheme
   );
 }

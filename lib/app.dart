@@ -4,6 +4,7 @@ import 'package:shop_ease/common/widgets/success_screen/success_screen.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:shop_ease/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:shop_ease/features/authentication/screens/signup/verify_email.dart';
+import 'package:shop_ease/navigation_home.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 import 'package:shop_ease/utils/theme/theme.dart';
 
@@ -29,7 +30,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       initialBinding: GeneralBindings(),
-      home: ForgetPassword()
+      home: NavigationHome()
     );
   }
 }
