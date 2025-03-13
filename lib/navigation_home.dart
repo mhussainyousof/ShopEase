@@ -3,23 +3,30 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/features/shop/screens/home/widgets/home.dart';
 
+// Main navigation screen with bottom navigation bar
 class NavigationHome extends StatelessWidget {
   const NavigationHome({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Get the navigation controller instance from GetX dependency injection
     final NavigationController controller = Get.find();
-    return Obx((){
-      return
-      Scaffold(
-        bottomNavigationBar:
-        NavigationBar(
+
+    // Obx listens for changes in the selectedIndex and rebuilds the UI accordingly
+    return Obx(() {
+      return Scaffold(
+        // Bottom navigation bar
+        bottomNavigationBar: NavigationBar(
+          // Set the selected index from the controller's observable value
           selectedIndex: controller.selectedIndex.value,
-          onDestinationSelected: (index)=> controller.selectedIndex.value = index,
+
+          // When a destination is selected, update the selected index in the controller
+          onDestinationSelected: (index) => controller.selectedIndex.value = index,
+
+          // Define the destinations (tabs) for the navigation bar
           destinations: [
             NavigationDestination(
-              icon:
-              Icon(Iconsax.home),
+              icon: Icon(Iconsax.home),
               label: 'Home',
             ),
             NavigationDestination(
@@ -37,14 +44,23 @@ class NavigationHome extends StatelessWidget {
           ],
         ),
 
+        // The body shows the screen associated with the selected index
         body: controller.screens[controller.selectedIndex.value],
       );
     });
   }
 }
 
-class NavigationController extends GetxController{
-
+// NavigationController manages the selected index and the list of screens
+class NavigationController extends GetxController {
+  // Observable selected index, initialized to 0 (the first tab)
   final Rx<int> selectedIndex = 0.obs;
-  final screens = [HomeScreen(),Container(color: Colors.yellow,),Container(color: Colors.red,),Container(color: Colors.purple,),];
+
+  // List of screens (widgets) corresponding to each navigation destination
+  final screens = [
+    HomeScreen(),                           // Home tab
+    Container(color: Colors.yellow),        // Store tab
+    Container(color: Colors.red),           // WishList tab
+    Container(color: Colors.purple),        // Profile tab
+  ];
 }
