@@ -11,7 +11,7 @@ class TNavigationBarTheme{
     height: 60,
     elevation: 0,
     backgroundColor: TColors.white,
-    indicatorColor: TColors.primary.withOpacity(0.1),
+    indicatorColor: TColors.primary.withAlpha(26),
     labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
           (states) => TextStyle(
         fontSize: TSizes.fontSizeSm - 4,
@@ -36,7 +36,7 @@ class TNavigationBarTheme{
     elevation: 0,
     height: 80,
     backgroundColor: TColors.dark,
-    indicatorColor: TColors.white.withOpacity(0.2),
+    indicatorColor: TColors.white.withAlpha(51),
 
     labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
           (states) => TextStyle(

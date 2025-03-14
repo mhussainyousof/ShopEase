@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'curved_edges.dart';
+import 'curve_corner.dart';
 
 class CurvedEdgeWidget extends StatelessWidget {
   const CurvedEdgeWidget({

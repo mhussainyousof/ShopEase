@@ -7,37 +7,37 @@ class TTextTheme {
 
   /// Customizable Light Text Theme
   static TextTheme lightTextTheme = TextTheme(
-    headlineLarge: const TextStyle().copyWith(fontSize: 29.0, fontWeight: FontWeight.bold, color: TColors.dark),
-    headlineMedium: const TextStyle().copyWith(fontSize: 20.0, fontWeight: FontWeight.w600, color: TColors.dark),
-    headlineSmall: const TextStyle().copyWith(fontSize: 15.0, fontWeight: FontWeight.w600, color: TColors.dark),
+    headlineLarge: TextStyle(fontSize: 29.0, fontWeight: FontWeight.bold, color: TColors.dark),
+    headlineMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: TColors.dark),
+    headlineSmall: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600, color: TColors.dark),
 
-    titleLarge: const TextStyle().copyWith(fontSize: 13.0, fontWeight: FontWeight.w600, color: TColors.dark),
-    titleMedium: const TextStyle().copyWith(fontSize: 13.0, fontWeight: FontWeight.w500, color: TColors.dark),
-    titleSmall: const TextStyle().copyWith(fontSize: 13.0, fontWeight: FontWeight.w400, color: TColors.dark),
+    titleLarge: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w600, color: TColors.dark),
+    titleMedium: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w500, color: TColors.dark),
+    titleSmall: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: TColors.dark),
 
-    bodyLarge: const TextStyle().copyWith(fontSize: 15.0, fontWeight: FontWeight.w500, color: TColors.dark),
-    bodyMedium: const TextStyle().copyWith(fontSize: 13.0, fontWeight: FontWeight.normal, color: TColors.dark),
-    bodySmall: const TextStyle().copyWith(fontSize: 11.0, fontWeight: FontWeight.w500, color: TColors.dark.withOpacity(0.5)),
+    bodyLarge: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: TColors.dark),
+    bodyMedium: TextStyle(fontSize: 13.0, fontWeight: FontWeight.normal, color: TColors.dark),
+    bodySmall: TextStyle(fontSize: 11.0, fontWeight: FontWeight.w500, color: TColors.dark.withAlpha(128)),
 
-    labelLarge: const TextStyle().copyWith(fontSize: 12.0, fontWeight: FontWeight.normal, color: TColors.dark),
-    labelMedium: const TextStyle().copyWith(fontSize: 10.0, fontWeight: FontWeight.normal, color: TColors.dark.withOpacity(0.5)),
+    labelLarge: TextStyle(fontSize: 12.0, fontWeight: FontWeight.normal, color: TColors.dark),
+    labelMedium: TextStyle(fontSize: 10.0, fontWeight: FontWeight.normal, color: TColors.dark.withAlpha(128)),
   );
 
   /// Customizable Dark Text Theme
   static TextTheme darkTextTheme = TextTheme(
-    headlineLarge: const TextStyle().copyWith(fontSize: 29.0, fontWeight: FontWeight.bold, color: TColors.light),
-    headlineMedium: const TextStyle().copyWith(fontSize: 20.0, fontWeight: FontWeight.w600, color: TColors.light),
-    headlineSmall: const TextStyle().copyWith(fontSize: 15.0, fontWeight: FontWeight.w600, color: TColors.light),
+    headlineLarge: TextStyle(fontSize: 29.0, fontWeight: FontWeight.bold, color: TColors.light),
+    headlineMedium: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: TColors.light),
+    headlineSmall: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600, color: TColors.light),
 
-    titleLarge: const TextStyle().copyWith(fontSize: 13.0, fontWeight: FontWeight.w600, color: TColors.light),
-    titleMedium: const TextStyle().copyWith(fontSize: 13.0, fontWeight: FontWeight.w500, color: TColors.light),
-    titleSmall: const TextStyle().copyWith(fontSize: 13.0, fontWeight: FontWeight.w400, color: TColors.light),
+    titleLarge: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w600, color: TColors.light),
+    titleMedium: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w500, color: TColors.light),
+    titleSmall: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: TColors.light),
 
-    bodyLarge: const TextStyle().copyWith(fontSize: 14.0, fontWeight: FontWeight.w500, color: TColors.light),
-    bodyMedium: const TextStyle().copyWith(fontSize: 13.0, fontWeight: FontWeight.normal, color: TColors.light),
-    bodySmall: const TextStyle().copyWith(fontSize: 11.0, fontWeight: FontWeight.w500, color: TColors.light.withOpacity(0.5)),
+    bodyLarge: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500, color: TColors.light),
+    bodyMedium: TextStyle(fontSize: 13.0, fontWeight: FontWeight.normal, color: TColors.light),
+    bodySmall: TextStyle(fontSize: 11.0, fontWeight: FontWeight.w500, color: TColors.light.withAlpha(128)),
 
-    labelLarge: const TextStyle().copyWith(fontSize: 12.0, fontWeight: FontWeight.normal, color: TColors.light),
-    labelMedium: const TextStyle().copyWith(fontSize: 10.0, fontWeight: FontWeight.normal, color: TColors.light.withOpacity(0.5)),
+    labelLarge: TextStyle(fontSize: 12.0, fontWeight: FontWeight.normal, color: TColors.light),
+    labelMedium: TextStyle(fontSize: 10.0, fontWeight: FontWeight.normal, color: TColors.light.withAlpha(128)),
   );
 }

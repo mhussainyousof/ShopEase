@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/features/authentication/screens/password_configuration/reset_password.dart';
-import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
 import '../../../../utils/constants/text_strings.dart';

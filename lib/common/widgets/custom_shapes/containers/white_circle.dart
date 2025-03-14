@@ -26,7 +26,7 @@ class CircularContainer extends StatelessWidget {
       height: height,
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
-        color: TColors.textWhite.withOpacity(0.1),
+        color: TColors.textWhite.withAlpha(26),
         borderRadius: BorderRadius.circular(radius),
       ),
       child: child,
