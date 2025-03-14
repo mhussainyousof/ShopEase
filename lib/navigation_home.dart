@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shop_ease/features/shop/screens/home/widgets/home.dart';
+import 'features/shop/screens/home/home.dart';
 
-// Main navigation screen with bottom navigation bar
 class NavigationHome extends StatelessWidget {
   const NavigationHome({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     // Get the navigation controller instance from GetX dependency injection
     final NavigationController controller = Get.find();
 
     // Obx listens for changes in the selectedIndex and rebuilds the UI accordingly
     return Obx(() {
       return Scaffold(
-        // Bottom navigation bar
         bottomNavigationBar: NavigationBar(
           // Set the selected index from the controller's observable value
           selectedIndex: controller.selectedIndex.value,
@@ -25,26 +24,13 @@ class NavigationHome extends StatelessWidget {
 
           // Define the destinations (tabs) for the navigation bar
           destinations: [
-            NavigationDestination(
-              icon: Icon(Iconsax.home),
-              label: 'Home',
-            ),
-            NavigationDestination(
-              icon: Icon(Iconsax.shop),
-              label: 'Store',
-            ),
-            NavigationDestination(
-              icon: Icon(Iconsax.heart),
-              label: 'WishList',
-            ),
-            NavigationDestination(
-              icon: Icon(Iconsax.user),
-              label: 'Profile',
-            ),
+            NavigationDestination(icon: Icon(Iconsax.home), label: 'Home',),
+            NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store',),
+            NavigationDestination(icon: Icon(Iconsax.heart), label: 'WishList',),
+            NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile',),
           ],
         ),
 
-        // The body shows the screen associated with the selected index
         body: controller.screens[controller.selectedIndex.value],
       );
     });
@@ -53,14 +39,12 @@ class NavigationHome extends StatelessWidget {
 
 // NavigationController manages the selected index and the list of screens
 class NavigationController extends GetxController {
-  // Observable selected index, initialized to 0 (the first tab)
   final Rx<int> selectedIndex = 0.obs;
 
-  // List of screens (widgets) corresponding to each navigation destination
   final screens = [
-    HomeScreen(),                           // Home tab
-    Container(color: Colors.yellow),        // Store tab
-    Container(color: Colors.red),           // WishList tab
-    Container(color: Colors.purple),        // Profile tab
+    HomeScreen(),
+    Container(color: Colors.yellow),
+    Container(color: Colors.red),
+    Container(color: Colors.purple),
   ];
 }
