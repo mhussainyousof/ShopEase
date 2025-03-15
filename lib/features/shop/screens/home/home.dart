@@ -5,8 +5,10 @@ import 'package:shop_ease/common/widgets/custom_shapes/containers/search_contain
 import 'package:shop_ease/common/widgets/products/cart/bag_count.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
+import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
+import 'widgets/carousel.dart';
 import 'widgets/home_categories.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -75,12 +77,18 @@ class HomeScreen extends StatelessWidget {
                 )
               ]),
             ),
+            Padding(
+                padding: const EdgeInsets.all(TSizes.defaultSpace - 4),
+                child: CustomSlider(
+                  banners: [
+                  TImages.promoBanner1, TImages.promoBanner2, TImages.promoBanner3
+                  ],
+                ))
           ],
         ),
       ),
     );
   }
 }
-
 
 
