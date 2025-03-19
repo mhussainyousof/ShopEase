@@ -9,10 +9,10 @@ class NavigationHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // Get the navigation controller instance from GetX dependency injection
+    //! Get the navigation controller instance from GetX dependency injection
     final NavigationController controller = Get.find();
 
-    // Obx listens for changes in the selectedIndex and rebuilds the UI accordingly
+    //! Obx listens for changes in the selectedIndex and rebuilds the UI accordingly
     return Obx(() {
       return Scaffold(
         bottomNavigationBar: NavigationBar(
