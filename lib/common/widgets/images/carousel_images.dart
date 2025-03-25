@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
-class CarouselImage extends StatelessWidget {
-  const CarouselImage({
+class ERoundedImage extends StatelessWidget {
+  const ERoundedImage({
     super.key,
     this.width ,
     this.height,

@@ -13,14 +13,14 @@ class TTextTheme {
 
     titleLarge: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w600, color: TColors.dark),
     titleMedium: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w500, color: TColors.dark),
-    titleSmall: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: TColors.dark),
+    titleSmall: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400, color: TColors.dark),
 
     bodyLarge: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: TColors.dark),
     bodyMedium: TextStyle(fontSize: 13.0, fontWeight: FontWeight.normal, color: TColors.dark),
     bodySmall: TextStyle(fontSize: 11.0, fontWeight: FontWeight.w500, color: TColors.dark.withAlpha(128)),
 
-    labelLarge: TextStyle(fontSize: 12.0, fontWeight: FontWeight.normal, color: TColors.dark),
-    labelMedium: TextStyle(fontSize: 10.0, fontWeight: FontWeight.normal, color: TColors.dark.withAlpha(128)),
+    labelLarge: TextStyle(fontSize: 11.0, fontWeight: FontWeight.normal, color: TColors.dark),
+    labelMedium: TextStyle(fontSize: 9.0, fontWeight: FontWeight.normal, color: TColors.dark.withAlpha(128)),
   );
 
   /// Customizable Dark Text Theme
@@ -31,7 +31,7 @@ class TTextTheme {
 
     titleLarge: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w600, color: TColors.light),
     titleMedium: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w500, color: TColors.light),
-    titleSmall: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: TColors.light),
+    titleSmall: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400, color: TColors.light),
 
     bodyLarge: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500, color: TColors.light),
     bodyMedium: TextStyle(fontSize: 13.0, fontWeight: FontWeight.normal, color: TColors.light),

@@ -25,7 +25,7 @@ class CustomSlider extends StatelessWidget {
           options: CarouselOptions(
               onPageChanged: (index, _)=> controller.updatePageIndicator(index),
               viewportFraction: 1),
-          items: banners.map((url)=> CarouselImage(imageUrl: url)).toList()
+          items: banners.map((url)=> ERoundedImage(imageUrl: url)).toList()
         ),
         SizedBox(
           height: TSizes.spaceBtwItems,
