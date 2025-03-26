@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:shop_ease/features/shop/screens/store/store.dart';
 import 'features/shop/screens/home/home.dart';
 
 class NavigationHome extends StatelessWidget {
@@ -37,13 +38,13 @@ class NavigationHome extends StatelessWidget {
   }
 }
 
-// NavigationController manages the selected index and the list of screens
+//! NavigationController manages the selected index and the list of screens
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
     HomeScreen(),
-    Container(color: Colors.yellow),
+    StoreScreen(),
     Container(color: Colors.red),
     Container(color: Colors.purple),
   ];

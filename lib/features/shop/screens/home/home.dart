@@ -19,14 +19,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Main scrollable content of the Home Screen
+      //! Main scrollable content of the Home Screen
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Top section with curved background and custom app bar
+            //! Top section with curved background and custom app bar
             DemoCurveWidget(
               child: Column(children: [
-                // Custom AppBar with title, subtitle, and action button (bag icon)
+                //! Custom AppBar with title, subtitle, and action button (bag icon)
                 MyAppBar(
                   title: Column(
                     children: [
@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   actions: [
-                    // Shopping bag icon with item count
+                    //! Shopping bag icon with item count
                     BagCountWidget(
                       iconColor: TColors.white,
                       onPressed: () {},
@@ -83,14 +83,31 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(TSizes.defaultSpace - 4),
                 child: CustomSlider(
                   banners: [
-                  TImages.promoBanner1, TImages.promoBanner2, TImages.promoBanner3
+                    TImages.promoBanner1,
+                    TImages.promoBanner2,
+                    TImages.promoBanner3
                   ],
                 )),
-              EGridLayout(itemBuilder: (_, index)=> EProductCardVertical(), itemCount: 4 ,)
+
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  RowTextButton(
+                    title: 'Popular Products',
+                    showActionButton: true,
+                    onPressed: () {},
+                  ),
+                  EGridLayout(
+                    itemBuilder: (_, index) => EProductCardVertical(),
+                    itemCount: 4,
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
