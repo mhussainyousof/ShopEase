@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
 class ERoundedImage extends StatelessWidget {
