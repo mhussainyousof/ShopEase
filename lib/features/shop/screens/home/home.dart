@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/demo_curved_widget.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:shop_ease/common/widgets/layout/grid_layout.dart';
 import 'package:shop_ease/common/widgets/products/cart/bag_count.dart';
 import 'package:shop_ease/common/widgets/products/product_cart/product_card_vertical.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
@@ -85,12 +86,11 @@ class HomeScreen extends StatelessWidget {
                   TImages.promoBanner1, TImages.promoBanner2, TImages.promoBanner3
                   ],
                 )),
-                EProductCardVertical()
+              EGridLayout(itemBuilder: (_, index)=> EProductCardVertical(), itemCount: 4 ,)
           ],
         ),
       ),
     );
   }
 }
-
 
