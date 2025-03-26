@@ -20,7 +20,7 @@ class StoreScreen extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return DefaultTabController(
-      length: 4, // Define the number of tabs
+      length: 5, // Define the number of tabs
       child: Scaffold(
         // Custom app bar with a title and cart button
         appBar: MyAppBar(
