@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/features/personalization/screens/settings/settings.dart';
+import 'package:shop_ease/features/shop/screens/product_detail/product_detail.dart';
 import 'package:shop_ease/features/shop/screens/store/store.dart';
 import 'package:shop_ease/features/shop/screens/wishlist/wishlist.dart';
 import 'features/shop/screens/home/home.dart';
@@ -45,7 +46,8 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    HomeScreen(),
+    ProductDetailScreen(),
+    // HomeScreen(),
     StoreScreen(),
     FavoriteScreen(),
     SettingScreen(),

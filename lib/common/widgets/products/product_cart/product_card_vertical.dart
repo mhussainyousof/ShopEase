@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/common/styles/shadows.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/rounded_container.dart';
@@ -7,6 +9,7 @@ import 'package:shop_ease/common/widgets/images/carousel_images.dart';
 import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
 import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
+import 'package:shop_ease/features/shop/screens/product_detail/product_detail.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
@@ -20,6 +23,7 @@ class EProductCardVertical extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
+      onTap: ()=> Get.to(()=>ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: EdgeInsets.all(1),
