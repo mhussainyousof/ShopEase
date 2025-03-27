@@ -6,8 +6,11 @@ import 'package:shop_ease/utils/constants/image_strings.dart';
 
 class EUserProfileTile extends StatelessWidget {
   const EUserProfileTile({
+    required this.onPressed,
     super.key,
   });
+
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class EUserProfileTile extends StatelessWidget {
               .textTheme
               .bodyMedium!
               .apply(color: TColors.white)),
-              trailing: IconButton(onPressed: (){}, icon: Icon(Iconsax.edit, color: TColors.white,)),
+              trailing: IconButton(onPressed:onPressed, icon: Icon(Iconsax.edit, color: TColors.white,)),
     );
   }
 }
