@@ -7,7 +7,7 @@ class BrandTitleText extends StatelessWidget {
       super.key,
       this.color,
       required this.title,
-      required this.maxLines,
+       this.maxLines = 1,
       this.textAlign,
       required this.brandTextSizes});
 
