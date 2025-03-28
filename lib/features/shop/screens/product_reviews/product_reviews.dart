@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/products/rating/rating_indicator.dart';
 import 'package:shop_ease/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
+import 'package:shop_ease/features/shop/screens/product_reviews/widgets/user_review_card.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
 class ProductReviewsScreen extends StatelessWidget {
@@ -29,7 +30,7 @@ class ProductReviewsScreen extends StatelessWidget {
               ERatingBarIndicator(rating: 3.5),
               Text('12,611', style: theme.bodySmall),
               SizedBox(height: TSizes.spaceBtwSections),
-
+              UserReviewCard()
             ],
           ),
         ),
