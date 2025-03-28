@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_ease/features/shop/screens/product_detail/widgets/product_detail_image_slider.dart';
 import 'package:shop_ease/features/shop/screens/product_detail/widgets/product_meta_data.dart';
+import 'package:shop_ease/features/shop/screens/product_detail/widgets/products_attribute.dart';
 import 'package:shop_ease/features/shop/screens/product_detail/widgets/rating_share_widget.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
@@ -20,7 +21,9 @@ class ProductDetailScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       ERatingAndShare(),
-                      ProductMetaData()
+                      ProductMetaData(),
+
+                      EProductsAttribute()
                     ],
                   ),
                   )
