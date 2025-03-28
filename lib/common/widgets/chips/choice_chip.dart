@@ -13,16 +13,20 @@ class EChoiceChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isColor = THelperFunctions.getColor(text) != null;
-    return ChoiceChip(
-      label: isColor ? SizedBox() : Text(text),
-      onSelected: onSelected,
-      labelStyle: TextStyle(color: selected ? TColors.white : null),
-      selected: selected,
-      avatar:isColor ?  CircularContainer(width: 50, height: 50, backgroundColor: THelperFunctions.getColor(text)!) : null,
-      shape:  isColor ?  CircleBorder() : null,
-      backgroundColor: isColor ? THelperFunctions.getColor(text)! : null,
-      labelPadding: isColor ? EdgeInsets.all(0) : null,
-      padding: isColor ? EdgeInsets.all(0) : null,
+    return Theme(
+      data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+      child: ChoiceChip(
+        
+        label: isColor ? SizedBox() : Text(text),
+        onSelected: onSelected,
+        labelStyle: TextStyle(color: selected ? TColors.white : null),
+        selected: selected,
+        avatar:isColor ?  CircularContainer(width: 50, height: 50, backgroundColor: THelperFunctions.getColor(text)!) : null,
+        shape:  isColor ?  CircleBorder() : null,
+        backgroundColor: isColor ? THelperFunctions.getColor(text)! : null,
+        labelPadding: isColor ? EdgeInsets.all(0) : null,
+        padding: isColor ? EdgeInsets.all(0) : null,
+      ),
     );
   }
 }

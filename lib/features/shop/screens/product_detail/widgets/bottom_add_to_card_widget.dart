@@ -52,8 +52,7 @@ class EBottomAddToCardWidget extends StatelessWidget {
               padding: EdgeInsets.all(4),
               backgroundColor: TColors.black,
               side: BorderSide(color: TColors.black),
-              // fixedSize: Size(100, 40)
-          
+              
               
             ),
             
