@@ -32,7 +32,9 @@ class ProductReviewsScreen extends StatelessWidget {
               SizedBox(height: TSizes.spaceBtwItems),
               EOverAllProductRating(),
               ERatingBarIndicator(rating: 3.5),
-              Text('12,611', style: theme.bodySmall)
+              Text('12,611', style: theme.bodySmall),
+              SizedBox(height: TSizes.spaceBtwSections),
+              
             ],
           ),
         ),
