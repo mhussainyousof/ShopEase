@@ -46,10 +46,12 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    ProductDetailScreen(),
-    // HomeScreen(),
+    // ProductDetailScreen(),
+    HomeScreen(),
     StoreScreen(),
     FavoriteScreen(),
     SettingScreen(),
   ];
 }
+
+

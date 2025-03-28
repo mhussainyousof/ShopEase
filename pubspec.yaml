@@ -27,6 +27,8 @@ dependencies:
   
 
 
+  readmore: ^3.0.0
+
   #State Management
   get: ^4.7.2
   get_storage: ^2.1.1

@@ -19,7 +19,7 @@ class EProductsAttribute extends StatelessWidget {
       children: [
         ERoundedContainer(
           padding: EdgeInsets.all(TSizes.md),
-          backgroundColor: dark ? TColors.darkerGrey : TColors.darkGrey,
+          backgroundColor: dark ? TColors.darkerGrey : TColors.darkGrey.withOpacity(0.6),
           child: Column(
             children: [
               Row(
@@ -61,6 +61,7 @@ class EProductsAttribute extends StatelessWidget {
         ),
 
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RowTextButton(title: 'Colors'),
             SizedBox(height: TSizes.spaceBtwItems / 2),
@@ -75,6 +76,7 @@ class EProductsAttribute extends StatelessWidget {
           ],
         ),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RowTextButton(title: 'Size'),
             SizedBox(height: TSizes.spaceBtwItems / 2),

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
@@ -25,18 +26,20 @@ class ECircularIcon extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-
+      
       decoration: BoxDecoration(
+
         borderRadius: BorderRadius.circular(100),
         color: backgroundColor ?? (dark ?
-            
             TColors.black.withOpacity(0.9)
             : TColors.white.withOpacity(0.9)),
       ),
-      child: SizedBox(
-        width: 40,
-        height: 40,
-        child: IconButton(onPressed: onPressed , icon: Icon(icon, color: color, size: size,))),
+      child: Center(
+        
+        child: IconButton(
+           padding: EdgeInsets.zero,
+          constraints: BoxConstraints(),
+          onPressed: onPressed , icon: Icon(icon, color: color, size: size,))),
     );
   }
 }
