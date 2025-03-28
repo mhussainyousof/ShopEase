@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop_ease/common/widgets/images/circular_image.dart';
-import 'package:shop_ease/common/widgets/texts/brand_title_text.dart';
 import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
 import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
-import 'package:shop_ease/utils/constants/enums.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/helpers/helper_functions.dart';
