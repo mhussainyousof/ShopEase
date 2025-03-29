@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
-import 'package:shop_ease/common/widgets/products/cart/add_remove_button.dart';
-import 'package:shop_ease/common/widgets/products/cart/cart_item.dart';
-import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
 import 'package:shop_ease/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:shop_ease/features/shop/screens/checkout/checkout.dart';
-
 import 'package:shop_ease/utils/constants/sizes.dart';
 
 
@@ -27,7 +23,7 @@ class CartScreen extends StatelessWidget {
         child: ECartItems()
       ),
     bottomNavigationBar: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace, vertical: 8),
       child: ElevatedButton(onPressed: (){
         Get.to(()=> CheckoutScreen());
       }, child: Text('Checkout \$256.0')),
