@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:shop_ease/features/personalization/screens/address/add_new_address.dart';
+import 'package:shop_ease/features/personalization/screens/address/address.dart';
 import 'package:shop_ease/features/personalization/screens/settings/settings.dart';
 import 'package:shop_ease/features/shop/screens/store/store.dart';
 import 'package:shop_ease/features/shop/screens/wishlist/wishlist.dart';
@@ -45,8 +47,8 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    // ProductDetailScreen(),
-    HomeScreen(),
+    UserAddressScreen(),
+    // HomeScreen(),
     StoreScreen(),
     FavoriteScreen(),
     SettingScreen(),
