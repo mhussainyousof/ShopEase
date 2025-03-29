@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
-import 'package:shop_ease/common/widgets/icons/circular_icon.dart';
-import 'package:shop_ease/common/widgets/images/carousel_images.dart';
 import 'package:shop_ease/common/widgets/products/cart/add_remove_button.dart';
 import 'package:shop_ease/common/widgets/products/cart/cart_item.dart';
-import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
-import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
-import 'package:shop_ease/utils/constants/colors.dart';
-import 'package:shop_ease/utils/constants/image_strings.dart';
+
 import 'package:shop_ease/utils/constants/sizes.dart';
-import 'package:shop_ease/utils/helpers/helper_functions.dart';
+
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
