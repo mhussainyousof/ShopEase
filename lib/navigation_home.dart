@@ -5,6 +5,7 @@ import 'package:shop_ease/features/personalization/screens/settings/settings.dar
 import 'package:shop_ease/features/shop/screens/home/home.dart';
 import 'package:shop_ease/features/shop/screens/order/order.dart';
 import 'package:shop_ease/features/shop/screens/store/store.dart';
+import 'package:shop_ease/features/shop/screens/sub_categories/sub_categories.dart';
 import 'package:shop_ease/features/shop/screens/wishlist/wishlist.dart';
 
 class NavigationHome extends StatelessWidget {
@@ -46,7 +47,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    OrderScreen(),
+    SubCategoriesScreen(),
     // HomeScreen(),
     StoreScreen(),
     FavoriteScreen(),
