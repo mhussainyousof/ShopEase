@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:shop_ease/features/shop/screens/cart/cart.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
@@ -21,7 +23,7 @@ class BagCountWidget extends StatelessWidget {
       children: [
         //! Shopping bag icon button
         IconButton(
-          onPressed: onPressed,
+          onPressed: ()=> Get.to(()=>CartScreen()),
           icon: Icon(
             Iconsax.shopping_bag,
             color: iconColor,

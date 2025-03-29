@@ -51,6 +51,7 @@ class HomeScreen extends StatelessWidget {
                     BagCountWidget(
                       iconColor: TColors.white,
                       onPressed: () {},
+                      
                     ),
                   ],
                 ),
