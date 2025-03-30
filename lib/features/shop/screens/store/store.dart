@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/appbar/tabbar.dart';
 import 'package:shop_ease/common/widgets/brands/brand_cart.dart';
@@ -6,6 +7,7 @@ import 'package:shop_ease/common/widgets/custom_shapes/containers/search_contain
 import 'package:shop_ease/common/widgets/layout/grid_layout.dart';
 import 'package:shop_ease/common/widgets/products/cart/bag_count.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
+import 'package:shop_ease/features/shop/screens/brands/all_brands.dart';
 import 'package:shop_ease/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
@@ -41,17 +43,17 @@ class StoreScreen extends StatelessWidget {
             return [
               SliverAppBar(
                 automaticallyImplyLeading: false,
-                pinned: true, // Keeps the app bar visible when scrolling
-                floating: true, // Allows it to appear/disappear while scrolling
+                pinned: true, 
+                floating: true, 
                 backgroundColor: dark ? TColors.black : TColors.white,
-                expandedHeight: 440, // Height of the expandable header
+                expandedHeight: 440,
 
                 // Flexible space for search bar and featured brands section
                 flexibleSpace: Padding(
                   padding: EdgeInsets.all(TSizes.defaultSpace),
                   child: ListView(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(), // Prevents scrolling inside this ListView
+                    physics: NeverScrollableScrollPhysics(), 
                     children: [
                       // Search bar
                       SearchContainer(
@@ -65,7 +67,7 @@ class StoreScreen extends StatelessWidget {
                       // Featured brands section
                       RowTextButton(
                         title: 'Featured Brands',
-                        onPressed: () {},
+                        onPressed: () => Get.to(()=> AllBrandsScreen()),
                         showActionButton: true,
                       ),
                       SizedBox(height: TSizes.spaceBtwItems / 1.5),

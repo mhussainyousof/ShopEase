@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/layout/grid_layout.dart';
 import 'package:shop_ease/common/widgets/products/product_cart/product_card_vertical.dart';
+import 'package:shop_ease/common/widgets/sortable/sortable_products.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
 class AllProductsScreen extends StatelessWidget {
@@ -15,29 +16,10 @@ class AllProductsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),
-          child: Column(
-            children: [
-              DropdownButtonFormField(
-                  decoration: InputDecoration(prefixIcon: Icon(Iconsax.sort)),
-                  items: [
-                    'Name',
-                    'Higher Price',
-                    'Lower Price',
-                    'Sale',
-                    'Newest',
-                    'Popularity'
-                  ].map((e) => DropdownMenuItem(
-                    value: e,
-                    child: Text(e))).toList(),
-                  onChanged: (value) {},
-                  ),
-
-                  SizedBox(height: TSizes.spaceBtwSections),
-                  EGridLayout(itemCount: 2, itemBuilder: (_, index)=>EProductCardVertical())
-            ],
-          ),
+          child: ESortableProducts(),
         ),
       ),
     );
   }
 }
+

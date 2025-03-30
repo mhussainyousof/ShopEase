@@ -20,7 +20,7 @@ class EBrandCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-    onTap: (){},
+    onTap: onTap,
     child: ERoundedContainer(
       padding: EdgeInsets.all(TSizes.sm),
 
