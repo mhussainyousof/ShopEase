@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/features/shop/screens/order/order_list.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
-import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 class OrderScreen extends StatelessWidget{
   const OrderScreen({super.key});
@@ -10,7 +9,6 @@ class OrderScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
-    final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: MyAppBar(
         showBackArrow: true,

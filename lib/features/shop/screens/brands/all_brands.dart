@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/brands/brand_cart.dart';
 import 'package:shop_ease/common/widgets/layout/grid_layout.dart';
-import 'package:shop_ease/common/widgets/sortable/sortable_products.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/shop/screens/brands/brand_product.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
