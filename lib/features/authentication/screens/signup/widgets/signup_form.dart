@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shop_ease/features/authentication/screens/signup/verify_email.dart';
+import 'package:shop_ease/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:shop_ease/features/authentication/screens/signup/widgets/terms_conditions.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
+import 'package:shop_ease/utils/validators/validation.dart';
 
 /// Signup Form Widget
 /// A reusable and responsive form for user registration.
@@ -14,7 +15,9 @@ class SignupForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignupController());
     return Form(
+      key: controller.singupFormKey,
       child: Column(
         children: [
 
@@ -23,6 +26,8 @@ class SignupForm extends StatelessWidget {
             children: [
               Expanded(
                 child: TextFormField(
+                  controller: controller.firstName,
+                  validator: (value)=> EValidator.validateEmptyText('First name', value),
                   expands: false,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Iconsax.user),
@@ -34,6 +39,8 @@ class SignupForm extends StatelessWidget {
               SizedBox(width: TSizes.spaceBtwInputFields),
               Expanded(
                 child: TextFormField(
+                validator: (value)=> EValidator.validateEmptyText('Last name', value),
+                controller: controller.lastName,
                   expands: false,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Iconsax.user),
@@ -49,6 +56,9 @@ class SignupForm extends StatelessWidget {
 
           // ---- Username Field ----
           TextFormField(
+            validator: (value)=> EValidator.validateEmptyText('Username', value),
+            controller: controller.userName,
+            expands: false, 
             decoration: InputDecoration(
               labelText: TTexts.username,
               labelStyle: TextStyle(fontSize: 13),
@@ -60,6 +70,8 @@ class SignupForm extends StatelessWidget {
 
           // ---- Email Field ----
           TextFormField(
+            validator: (value)=> EValidator.validateEmail(value),
+            controller: controller.email,
             decoration: InputDecoration(
               labelText: TTexts.email,
               labelStyle: TextStyle(fontSize: 13),
@@ -71,6 +83,8 @@ class SignupForm extends StatelessWidget {
 
           // ---- Phone Number Field ----
           TextFormField(
+             validator: (value)=> EValidator.validatePhoneNumber(value),
+            controller: controller.phoneNumber,
             decoration: InputDecoration(
               labelText: TTexts.phoneNo,
               labelStyle: TextStyle(fontSize: 13),
@@ -82,6 +96,8 @@ class SignupForm extends StatelessWidget {
 
           // ---- Password Field ----
           TextFormField(
+             validator: (value)=> EValidator.validatePassword(value),
+            controller: controller.password,
             decoration: InputDecoration(
               labelText: TTexts.password,
               labelStyle: TextStyle(fontSize: 13),
@@ -101,9 +117,10 @@ class SignupForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                Get.to(()=>VerifyEmailScreen());
-              },
+              onPressed: () 
+                // Get.to(()=>VerifyEmailScreen()); 
+                =>controller.signup(),
+              
               child: Text(TTexts.createAccount),
             ),
           ),
