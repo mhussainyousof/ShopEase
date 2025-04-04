@@ -1,13 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:shop_ease/features/authentication/screens/signup/widgets/signup_form.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/helpers/network_manager.dart';
 import 'package:shop_ease/utils/popups/full_screen_loader.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:shop_ease/utils/popups/loaders.dart';
 
 
