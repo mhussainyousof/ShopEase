@@ -14,7 +14,7 @@ class EAnimationLoaderWidget extends StatelessWidget {
       {super.key,
       required this.text,
       required this.animation,
-       this.showAction = false,
+       this.showAction = false, 
       this.actionText,
       this.onActionPressed});
 

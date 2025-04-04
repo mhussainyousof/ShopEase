@@ -11,9 +11,6 @@ class EValidator {
 
 
 
-
-
-
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email is required.';
@@ -30,46 +27,47 @@ class EValidator {
   }
 
   static String? validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Password is required.';
-    }
+  List<String> errors = [];
 
-    // Check for minimum password length
+  if (value == null || value.isEmpty) {
+    errors.add('Password is required.');
+  } else {
     if (value.length < 6) {
-      return 'Password must be at least 6 characters long.';
+      errors.add('At least 6 characters.');
     }
-
-    // Check for uppercase letters
     if (!value.contains(RegExp(r'[A-Z]'))) {
-      return 'Password must contain at least one uppercase letter.';
+      errors.add('At least one uppercase letter.');
     }
-
-    // Check for numbers
     if (!value.contains(RegExp(r'[0-9]'))) {
-      return 'Password must contain at least one number.';
+      errors.add('At least one number.');
     }
-
-    // Check for special characters
     if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return 'Password must contain at least one special character.';
+      errors.add('At least one special character.');
     }
-
-    return null;
   }
 
+  return errors.isEmpty ? null : errors.join('\n'); 
+}
+
   static String? validatePhoneNumber(String? value) {
+    List<String> errors = [];
     if (value == null || value.isEmpty) {
-      return 'Phone number is required.';
+      errors.add('Phone number is required.');
+     
+    }
+    else{
+
+    final phoneRegExp = RegExp(r'^\d{10}$');
+      if (!phoneRegExp.hasMatch(value)) {
+        errors.add('Invalid phone number format (10 digits required).');
+    }
+
     }
 
     // Regular expression for phone number validation (assuming a 10-digit US phone number format)
-    final phoneRegExp = RegExp(r'^\d{10}$');
 
-    if (!phoneRegExp.hasMatch(value)) {
-      return 'Invalid phone number format (10 digits required).';
-    }
-
-    return null;
+    
+    return errors.isEmpty? null : errors.join('\n');
   }
 
 }
