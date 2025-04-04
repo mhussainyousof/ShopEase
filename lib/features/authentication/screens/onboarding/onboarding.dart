@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_ease/features/authentication/controllers_onboarding/onboarding_controller.dart';
+import 'package:shop_ease/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
