@@ -8,10 +8,15 @@ import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key,});
+
+  final String? email;
+  const VerifyEmailScreen({
+    this.email,
+    super.key,});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailScreen());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -28,7 +33,7 @@ class VerifyEmailScreen extends StatelessWidget {
 
           SizedBox(height: TSizes.spaceBtwItems,),
 
-          Text('example@hussian.com', style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
+          Text(email ?? '', style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
 
           SizedBox(height: TSizes.spaceBtwItems,),
 

@@ -23,50 +23,76 @@ class SignupController extends GetxController {
   GlobalKey<FormState> singupFormKey = GlobalKey<FormState>();
 
   void signup() async {
-    try {
-      if (!singupFormKey.currentState!.validate()) return;
+  try {
+    // 1. Check internet connection
+    final isConnected = await NetworkManager.instance.isConnected();
+    if (!isConnected) {
+      TLoaders.warningSnackBar(
+        title: 'No Internet',
+        message: 'Please connect to the internet and try again.',
+      );
+      return;
+    }
 
-      if (!privacyPolicy.value) {
-        TLoaders.warningSnackBar(
-            title: 'Accept Privacy Policy',
-            message:
-                'In order to create account, you must have to read and accept the Privay Policy & Terms of Use.');
-                return;
-      }
-      TFullScreenLoader.openLoadingDialog(
-          "We are processing your information...", TImages.docerAnimation);
-      final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
-      // {
-      // TFullScreenLoader.stopLoading();
-      // }
-      // TFullScreenLoader.stopLoading();
+    // 2. Validate form fields
+    if (!singupFormKey.currentState!.validate()) {
+      return;
+    }
 
+    // 3. Check if privacy policy is accepted
+    if (!privacyPolicy.value) {
+      TLoaders.warningSnackBar(
+        title: 'Accept Privacy Policy',
+        message: 'You must accept the privacy policy and terms to continue.',
+      );
+      return;
+    }
 
-      final userCredential = await AuthenticationRepository.instance
-          .registerWithEmailAndPassword(
-              email.text.trim(), password.text.trim());
+    // 4. Show loading animation
+    TFullScreenLoader.openLoadingDialog(
+      "We are processing your information...", 
+      TImages.docerAnimation,
+    );
 
-      final newUser = UserModel(
-          id: userCredential.user!.uid,
-          firstName: firstName.text.trim(),
-          lastName: lastName.text.trim(),
-          username: userName.text.trim(),
-          email: email.text.trim(),
-          phoneNumber: phoneNumber.text.trim(),
-          profilePicture: '');
+    // 5. Create user with Firebase Authentication
+    final userCredential = await AuthenticationRepository.instance
+        .registerWithEmailAndPassword(
+          email.text.trim(), 
+          password.text.trim(),
+        );
+
+    // 6. Create user model and save to Firestore
+    final newUser = UserModel(
+      id: userCredential.user!.uid,
+      firstName: firstName.text.trim(),
+      lastName: lastName.text.trim(),
+      username: userName.text.trim(),
+      email: email.text.trim(),
+      phoneNumber: phoneNumber.text.trim(),
+      profilePicture: '',
+    );
 
     final userRepository = Get.put(UserRepository());
     await userRepository.saveUserRecord(newUser);
+
+    // 7. Stop loading animation and show success message
     TFullScreenLoader.stopLoading();
+    TLoaders.successSnackBar(
+      title: 'Congratulations',
+      message: 'Your account has been created! Verify your email to continue.',
+    );
 
-    TLoaders.successSnackBar(title: 'Congratulatins', message: 'Your account has been created! Verify email to continue');
+    // 8. Navigate to email verification screen
+    Get.to(() => VerifyEmailScreen(email: email.text.trim(),));
 
-    Get.to(()=> VerifyEmailScreen());
-    } catch (e) {
-      TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'On Snap!', message: e.toString());
-    
-    } 
+  } catch (e) {
+    // Stop loading and show error message
+    TFullScreenLoader.stopLoading();
+    TLoaders.errorSnackBar(
+      title: 'Oops!',
+      message: e.toString(),
+    );
   }
+}
+ 
 }
