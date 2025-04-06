@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_ease/common/widgets/success_screen/success_screen.dart';
 import 'package:shop_ease/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
