@@ -9,7 +9,6 @@ import 'package:shop_ease/firebase_options.dart';
 
 
 void main() async {
-  
    await GetStorage.init();
    final WidgetsBinding widgetsBinding =  WidgetsFlutterBinding.ensureInitialized();
 
