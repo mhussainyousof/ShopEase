@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_ease/data/repositories/authentication/authentication_repository.dart';
 import 'package:shop_ease/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
@@ -21,7 +22,7 @@ class VerifyEmailScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(onPressed: ()=> Get.offAll(LoginScreen()), icon: Icon(CupertinoIcons.clear))
+          IconButton(onPressed: ()=> AuthenticationRepository.instance.logout(), icon: Icon(CupertinoIcons.clear))
         ],
       ),
       body: SingleChildScrollView(
@@ -55,7 +56,7 @@ class VerifyEmailScreen extends StatelessWidget {
 
           SizedBox(height: TSizes.spaceBtwItems,),
 
-          SizedBox(width: double.infinity, child: TextButton(onPressed: (){}, child: Text(TTexts.resendEmail)),)
+          SizedBox(width: double.infinity, child: TextButton(onPressed: ()=> controller.sendEmailVerification() , child: Text(TTexts.resendEmail)),)
         ],),
         ),
 
