@@ -7,6 +7,9 @@ import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 
+
+//! USER MUST CONFIRM ITS EMAIL
+
 class VerifyEmailScreen extends StatelessWidget {
 
   final String? email;
@@ -41,6 +44,9 @@ class VerifyEmailScreen extends StatelessWidget {
 
           SizedBox(height: TSizes.spaceBtwSections,),
 
+
+
+          //! CHECK EMAIL BUTTON 
           SizedBox(width: double.infinity, child: ElevatedButton(onPressed: ()=> 
           controller.checkEmailVerificationStatus(),
           // Get.to(()=> SuccessScreen(
@@ -55,6 +61,9 @@ class VerifyEmailScreen extends StatelessWidget {
 
           SizedBox(height: TSizes.spaceBtwItems,),
 
+
+
+          //! SEND EMAIL VERIFICARION
           SizedBox(width: double.infinity, child: TextButton(onPressed: ()=> controller.sendEmailVerification() , child: Text(TTexts.resendEmail)),)
         ],),
         ),
