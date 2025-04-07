@@ -4,6 +4,8 @@ import 'package:shop_ease/navigation_home.dart';
 import 'package:shop_ease/utils/helpers/network_manager.dart';
 import '../features/authentication/controllers/onboarding/onboarding_controller.dart';
 
+
+//!app bindings
 class GeneralBindings extends Bindings {
   @override
   void dependencies() {

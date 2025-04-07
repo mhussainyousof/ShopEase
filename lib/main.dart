@@ -9,15 +9,16 @@ import 'package:shop_ease/firebase_options.dart';
 
 
 void main() async {
-   await GetStorage.init();
-   final WidgetsBinding widgetsBinding =  WidgetsFlutterBinding.ensureInitialized();
+await GetStorage.init();
+final WidgetsBinding widgetsBinding =  WidgetsFlutterBinding.ensureInitialized();
 
-    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform
-  ).then((FirebaseApp value) => Get.put(AuthenticationRepository()));
 
-  runApp(const App());
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform
+).then((FirebaseApp value) => Get.put(AuthenticationRepository()));
+
+runApp(const App());
 }
 
