@@ -8,12 +8,6 @@ import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 
 
-/* -------------------------------------------------------------
- 🚀 TermsAndConditions Component
- 📄 Description: Displays a checkbox with terms & privacy links.
- 🌓 Theme-aware: Adjusts link colors based on light/dark mode.
-------------------------------------------------------------- */
-
 class TermsAndConditions extends StatelessWidget {
   const TermsAndConditions({super.key});
 
@@ -37,18 +31,18 @@ class TermsAndConditions extends StatelessWidget {
 
         SizedBox(width: TSizes.sm),
 
-        // 📜 Terms & Privacy Text Links
+        // !📜 Terms & Privacy Text Links
         Text.rich(
           TextSpan(
             children: [
 
-              // ➡️ "I agree to"
+              //! ➡️ "I agree to"
               TextSpan(
                 text: '${TTexts.iAgreeTo} ',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
 
-              // 🔗 Privacy Policy Link (Theme aware)
+              //! 🔗 Privacy Policy Link (Theme aware)
               TextSpan(
                 text: TTexts.privacyPolicy,
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
@@ -58,13 +52,13 @@ class TermsAndConditions extends StatelessWidget {
                 ),
               ),
 
-              // ➕ "and"
+              //! ➕ "and"
               TextSpan(
                 text: ' ${TTexts.and} ',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
 
-              // 🔗 Terms of Use Link (Theme aware)
+              // !🔗 Terms of Use Link (Theme aware)
               TextSpan(
                 text: TTexts.termsOfUse,
                 style: Theme.of(context).textTheme.bodyMedium!.apply(

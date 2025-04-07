@@ -13,14 +13,14 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 🧠 Controller for page handling & state management
+    //! 🧠 Controller for page handling & state management
     final controller = Get.put(OnBoardingController());
 
     return Scaffold(
       body: Stack(
         children: [
 
-          // 📄 PageView - Swipable onboarding pages
+          //! 📄 PageView - Swipable onboarding pages
           PageView(
             controller: controller.pageController,
             onPageChanged: controller.updatePageIndicator,
@@ -43,13 +43,13 @@ class OnBoardingScreen extends StatelessWidget {
             ],
           ),
 
-          // ⏭️ Skip Button (Top-Right Corner)
+          //! ⏭️ Skip Button (Top-Right Corner)
           OnBoardingSkip(),
 
-          // 🔵 Dot Indicators (Bottom-Center)
+          //! 🔵 Dot Indicators (Bottom-Center)
           OnBoardingDotNavigation(),
 
-          // 👉 Next Button (Bottom-Right)
+          //! 👉 Next Button (Bottom-Right)
           OnBoardingNextButton(),
         ],
       ),

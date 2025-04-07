@@ -8,10 +8,10 @@ import 'package:shop_ease/utils/constants/text_strings.dart';
 import 'package:shop_ease/utils/popups/loaders.dart'; 
 
 class VerifyEmailController extends GetxController {
-  // Singleton instance to access this controller from anywhere
+  //! Singleton instance to access this controller from anywhere
   static VerifyEmailController get instance => Get.find();
 
-  // Called when the controller is initialized
+  //! Called when the controller is initialized
   @override
   void onInit() {
     sendEmailVerification(); // Sends email verification
@@ -19,7 +19,7 @@ class VerifyEmailController extends GetxController {
     super.onInit();
   }
 
-  // Sends a verification email to the user's email address
+  //! Sends a verification email to the user's email address
   sendEmailVerification() async {
     try {
       await AuthenticationRepository.instance.sendEmailVerification();
@@ -35,7 +35,7 @@ class VerifyEmailController extends GetxController {
     }
   }
 
-  // Periodically checks if the user's email has been verified
+  //! Periodically checks if the user's email has been verified
   setTimeForAutoRedirect() {
     Timer.periodic(Duration(seconds: 1), (timer) async {
       await FirebaseAuth.instance.currentUser?.reload(); // Refresh user info
@@ -55,7 +55,7 @@ class VerifyEmailController extends GetxController {
     });
   }
 
-  // Manually checks email verification status and redirects if verified
+  //! Manually checks email verification status and redirects if verified
   checkEmailVerificationStatus() async {
     final currentUser = FirebaseAuth.instance.currentUser;
     if (currentUser != null && currentUser.emailVerified) {

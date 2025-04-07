@@ -20,7 +20,7 @@ class SignupForm extends StatelessWidget {
       key: controller.singupFormKey,
       child: Column(
         children: [
-          // ---- First & Last Name Fields ----
+          //! ---- First & Last Name Fields ----
           Row(
             children: [
               Expanded(
@@ -55,7 +55,7 @@ class SignupForm extends StatelessWidget {
 
           SizedBox(height: TSizes.spaceBtwInputFields),
 
-          // ---- Username Field ----
+          //! ---- Username Field ----
           TextFormField(
             validator: (value) =>
                 EValidator.validateEmptyText('Username', value),
@@ -70,7 +70,7 @@ class SignupForm extends StatelessWidget {
 
           SizedBox(height: TSizes.spaceBtwInputFields),
 
-          // ---- Email Field ----
+          //! ---- Email Field ----
           TextFormField(
             validator: (value) => EValidator.validateEmail(value),
             controller: controller.email,
@@ -83,7 +83,7 @@ class SignupForm extends StatelessWidget {
 
           SizedBox(height: TSizes.spaceBtwInputFields),
 
-          // ---- Phone Number Field ----
+          //! ---- Phone Number Field ----
           TextFormField(
             validator: (value) => EValidator.validatePhoneNumber(value),
             controller: controller.phoneNumber,
@@ -96,7 +96,7 @@ class SignupForm extends StatelessWidget {
 
           SizedBox(height: TSizes.spaceBtwInputFields),
 
-          // ---- Password Field ----
+          //! ---- Password Field ----
           Obx(() => TextFormField(
                 validator: (value) => EValidator.validatePassword(value),
                 controller: controller.password,
@@ -115,14 +115,14 @@ class SignupForm extends StatelessWidget {
                 ),
               )),
 
-          // SizedBox(height: TSizes.spaceBtwItems),
+          //! SizedBox(height: TSizes.spaceBtwItems),
 
-          // ---- Terms & Conditions ----
+          //! ---- Terms & Conditions ----
           TermsAndConditions(),
 
           SizedBox(height: TSizes.md),
 
-          // ---- Submit Button ----
+          //! ---- Submit Button ----
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
