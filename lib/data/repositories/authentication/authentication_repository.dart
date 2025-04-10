@@ -29,10 +29,12 @@ class AuthenticationRepository extends GetxController {
     if(user != null){
       if(user.emailVerified){
         Get.offAll(()=>NavigationHome());
-      }else{
+      }
+      else{
         Get.offAll(()=> VerifyEmailScreen(email: _auth.currentUser?.email));
       }
-    }else{
+    }
+    else{
             deviceStorage.writeIfNull('IsFirstTime', true);
     deviceStorage.read('IsFirstTime') != true
         ? Get.offAll(() => LoginScreen())
