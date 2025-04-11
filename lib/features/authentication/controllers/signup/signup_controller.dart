@@ -33,7 +33,7 @@ class SignupController extends GetxController {
       );
       return;
     }
-
+ 
     // 2. Validate form fields
     if (!singupFormKey.currentState!.validate()) {
       return;
