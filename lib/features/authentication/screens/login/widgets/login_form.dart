@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/features/authentication/controllers/login/login_controller.dart';
-import 'package:shop_ease/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:shop_ease/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:shop_ease/features/authentication/screens/signup/signup.dart';
-import 'package:shop_ease/navigation_home.dart';
-
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/constants/text_strings.dart';
 import 'package:shop_ease/utils/validators/validation.dart';
