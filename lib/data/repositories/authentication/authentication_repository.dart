@@ -39,9 +39,28 @@ class AuthenticationRepository extends GetxController {
     deviceStorage.read('IsFirstTime') != true
         ? Get.offAll(() => LoginScreen())
         : Get.offAll(OnBoardingScreen());
-      }
+      }}
 
+    /// [EmailAuthentication] - LOGIN
+
+    Future<UserCredential> loginWithEmailAndPassword(String email, String password)async{
+    try{
+      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+
+    }on FirebaseAuthException catch(e){
+      throw TFirebaseAuthException(e.code).message;
+    }on FirebaseException catch(e){
+      throw TFirebaseException(e.code);
+    }on FormatException catch(_){
+      throw TFormatException();
+    }on PlatformException catch(e){
+      throw TPlatformException(e.code).message;
+    }catch(e){
+      throw 'Something went wrong. Please try again';
+    }
   }
+
+
 
 
   Future<UserCredential> registerWithEmailAndPassword(String email, String password)async{
@@ -79,9 +98,10 @@ class AuthenticationRepository extends GetxController {
   }
 
 
-Future<void>logout()async{
+Future<void>logout()async{ 
   try{
     await FirebaseAuth.instance.signOut();
+    
     Get.offAll(()=> LoginScreen());
   }on FirebaseAuthException catch(e){
       throw TFirebaseAuthException(e.code).message;

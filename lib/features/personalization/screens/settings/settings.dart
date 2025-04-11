@@ -7,6 +7,8 @@ import 'package:shop_ease/common/widgets/custom_shapes/containers/demo_curved_wi
 import 'package:shop_ease/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:shop_ease/common/widgets/list_tile/user_profile.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
+import 'package:shop_ease/data/repositories/authentication/authentication_repository.dart';
+import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/features/personalization/screens/profile/profile.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
@@ -31,8 +33,7 @@ class SettingScreen extends StatelessWidget {
                           .apply(color: TColors.white)),
                 ),
                 EUserProfileTile(
-                  onPressed: ()=> Get.to(()=> ProfileScreen())
-                ),
+                    onPressed: () => Get.to(() => ProfileScreen())),
                 const SizedBox(
                   height: TSizes.spaceBtwSections,
                 )
@@ -82,24 +83,33 @@ class SettingScreen extends StatelessWidget {
                       title: 'Load Data',
                       subtitle: 'Upload Data to your Cloud Firebase'),
                   ESettingsMenuTile(
-                      icon: Iconsax.location,
-                      title: 'Geolocation',
-                      subtitle: 'Set recommendation based on location',
-                      trailing: Switch(value: true, onChanged: (value){}),
-                      ),
+                    icon: Iconsax.location,
+                    title: 'Geolocation',
+                    subtitle: 'Set recommendation based on location',
+                    trailing: Switch(value: true, onChanged: (value) {}),
+                  ),
                   ESettingsMenuTile(
-                      icon: Iconsax.security_user,
-                      title: 'Safe Mode',
-                      subtitle: 'Search result is safe for all ages',
-                      trailing: Switch(value: false, onChanged: (value){}),
-                      ),
+                    icon: Iconsax.security_user,
+                    title: 'Safe Mode',
+                    subtitle: 'Search result is safe for all ages',
+                    trailing: Switch(value: false, onChanged: (value) {}),
+                  ),
                   ESettingsMenuTile(
-                      icon: Iconsax.image,
-                      title: 'HD Image Quality',
-                      subtitle: 'Set image quality to be seen',
-                      trailing: Switch(value: false, onChanged: (value){}),
-                      ),
+                    icon: Iconsax.image,
+                    title: 'HD Image Quality',
+                    subtitle: 'Set image quality to be seen',
+                    trailing: Switch(value: false, onChanged: (value) {}),
+                  ),
+                  ESettingsMenuTile(
+                    icon: Iconsax.logout,
+                    title: 'Logout',
+                    subtitle: 'Sign out from this account',
                       
+                    onTap: () async {
+                      await AuthenticationRepository.instance
+                          .logout(); 
+                    },
+                  ),
                 ],
               ),
             )

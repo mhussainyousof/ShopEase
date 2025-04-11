@@ -42,7 +42,6 @@ class SignupForm extends StatelessWidget {
                   validator: (value) =>
                       EValidator.validateEmptyText('Last name', value),
                   controller: controller.lastName,
-                  expands: false,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Iconsax.user),
                     labelText: TTexts.lastName,
@@ -60,7 +59,6 @@ class SignupForm extends StatelessWidget {
             validator: (value) =>
                 EValidator.validateEmptyText('Username', value),
             controller: controller.userName,
-            expands: false,
             decoration: InputDecoration(
               labelText: TTexts.username,
               labelStyle: TextStyle(fontSize: 13),
@@ -127,7 +125,6 @@ class SignupForm extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () 
-                  // Get.to(()=>VerifyEmailScreen());
                   =>
                   controller.signup(),
               child: Text(TTexts.createAccount),
