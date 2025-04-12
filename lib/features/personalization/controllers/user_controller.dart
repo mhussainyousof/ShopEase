@@ -6,32 +6,41 @@ import 'package:shop_ease/utils/popups/loaders.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
+
   final userRepository = Get.put(UserRepository());
+
+  // Function to save user data from Google Sign-In
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
-      if (userCredential != null) {
-        final nameParts =
-            UserModel.nameParts(userCredential.user!.displayName ?? '');
-        final userName =
-            UserModel.generateUsername(userCredential.user!.displayName ?? '');
+      if (userCredential != null) { //! Check if userCredential is not null
 
+        //! Split the full name into parts (first name, last name)
+        final nameParts = UserModel.nameParts(userCredential.user!.displayName ?? '');
+
+        //! Generate a custom username
+        final userName = UserModel.generateUsername(userCredential.user!.displayName ?? '');
+
+        //! Create a new user object with the data
         final user = UserModel(
             id: userCredential.user!.uid,
             firstName: nameParts[0],
-            lastName:
-                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-            username: userName,
+            lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+            username: userName, //! The generated username
             email: userCredential.user!.email ?? '',
             phoneNumber: userCredential.user!.phoneNumber ?? '',
-            profilePicture: userCredential.user!.photoURL ?? '');
+            profilePicture: userCredential.user!.photoURL ?? ''
+        );
 
+        //! Save the user record to the database (FireStore)
         await userRepository.saveUserRecord(user);
+
       }
     } catch (e) {
+      //! If an error occurs, show a warning message
       TLoaders.warningSnackBar(
-          title: 'Data not saved',
-          message:
-              'Something went wrong saving your information. you can do it in your profile');
+        title: 'Data not saved',
+        message: 'Something went wrong saving your information. You can do it in your profile 😞',
+      );
     }
   }
 }
