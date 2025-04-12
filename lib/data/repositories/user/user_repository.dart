@@ -6,6 +6,9 @@ import 'package:shop_ease/utils/exceptions/firebase_exceptions.dart';
 import 'package:shop_ease/utils/exceptions/format_exceptions.dart';
 import 'package:shop_ease/utils/exceptions/platform_exceptions.dart';
 
+
+
+//! Connect with Firebase to store users data
 class UserRepository extends GetxController{
   static UserRepository get instance => Get.find();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
