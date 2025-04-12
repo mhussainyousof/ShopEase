@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -66,9 +67,7 @@ class AuthenticationRepository extends GetxController {
 
   Future<UserCredential> registerWithEmailAndPassword(String email, String password)async{
     try{
-    final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
-    final GoogleSignInAuthentication? googleAuth = await userAccount?.authentication;
-    final credentials = GoogleAuthProvider.credential();
+      return await _auth.createUserWithEmailAndPassword(email: email, password: password);
 
     }on FirebaseAuthException catch(e){
       throw TFirebaseAuthException(e.code).message;
@@ -83,9 +82,15 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  Future<UserCredential> signInWithGoogle(String email, String password)async{
+  Future<UserCredential?> signInWithGoogle()async{
     try{
-      return await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth = await userAccount?.authentication;
+      final credentials = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken,
+          idToken: googleAuth?.idToken
+      );
+      return await _auth.signInWithCredential(credentials);
 
     }on FirebaseAuthException catch(e){
       throw TFirebaseAuthException(e.code).message;
@@ -96,7 +101,8 @@ class AuthenticationRepository extends GetxController {
     }on PlatformException catch(e){
       throw TPlatformException(e.code).message;
     }catch(e){
-      throw 'Something went wrong. Please try again';
+     if(kDebugMode) print('Something went wrong $e');
+     return null;
     }
   }
 
