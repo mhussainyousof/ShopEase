@@ -79,4 +79,29 @@ class LoginController extends GetxController {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
+
+  Future<void> googleSignin()async{
+    try{
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        //! 📢 No bars = no login. Go find WiFi, champ.
+        // TLoaders.warningSnackBar(
+        //   title: 'No Internet',
+        //   message: 'Please connect to the internet and try again.',
+        // );
+        return;
+      }
+      
+      TFullScreenLoader.openLoadingDialog('Signing in with Google', TImages.docerAnimation);
+
+      await AuthenticationRepository.instance.signInWithGoogle();
+
+      TFullScreenLoader.stopLoading();
+      AuthenticationRepository.instance.screenRedirect();
+
+    }catch(e){
+      TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    }
+  }
 }
