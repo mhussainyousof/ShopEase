@@ -20,7 +20,8 @@ class SignupController extends GetxController {
   final password = TextEditingController();
   final firstName = TextEditingController();
   final phoneNumber = TextEditingController();
-  GlobalKey<FormState> singupFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> singUpFormKey = GlobalKey<FormState>();
+    final userRepository = Get.put(UserRepository());
 
   void signup() async {
   try {
@@ -33,9 +34,9 @@ class SignupController extends GetxController {
       );
       return;
     }
- 
+
     // 2. Validate form fields
-    if (!singupFormKey.currentState!.validate()) {
+    if (!singUpFormKey.currentState!.validate()) {
       return;
     }
 
@@ -50,18 +51,18 @@ class SignupController extends GetxController {
 
     // 4. Show loading animation
     TFullScreenLoader.openLoadingDialog(
-      "We are processing your information...", 
+      "We are processing your information...",
       TImages.docerAnimation,
     );
 
     // 5. Create user with Firebase Authentication
     final userCredential = await AuthenticationRepository.instance
         .registerWithEmailAndPassword(
-          email.text.trim(), 
+          email.text.trim(),
           password.text.trim(),
         );
 
-    // 6. Create user model and save to Firestore
+    // 6. Create user model and save to FireStore
     final newUser = UserModel(
       id: userCredential.user!.uid,
       firstName: firstName.text.trim(),
@@ -72,7 +73,6 @@ class SignupController extends GetxController {
       profilePicture: '',
     );
 
-    final userRepository = Get.put(UserRepository());
     await userRepository.saveUserRecord(newUser);
 
     // 7. Stop loading animation and show success message

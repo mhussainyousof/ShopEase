@@ -1,11 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:shop_ease/data/repositories/user/user_repository.dart';
 import 'package:shop_ease/features/personalization/models/user_model.dart';
 import 'package:shop_ease/utils/popups/loaders.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
-
+  final userRepository = Get.put(UserRepository());
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
       if (userCredential != null) {
@@ -23,6 +24,8 @@ class UserController extends GetxController {
             email: userCredential.user!.email ?? '',
             phoneNumber: userCredential.user!.phoneNumber ?? '',
             profilePicture: userCredential.user!.photoURL ?? '');
+
+        await userRepository.saveUserRecord(user);
       }
     } catch (e) {
       TLoaders.warningSnackBar(

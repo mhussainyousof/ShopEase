@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:shop_ease/data/repositories/authentication/authentication_repository.dart';
+import 'package:shop_ease/features/personalization/controllers/user_controller.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/helpers/network_manager.dart';
 import 'package:shop_ease/utils/popups/full_screen_loader.dart';
@@ -21,6 +22,7 @@ class LoginController extends GetxController {
 
   //! 🛡️ Form guardian — blocks weak forms like Gandalf: “You shall not pass!”
   GlobalKey<FormState> loginKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   @override
   void onInit() {
@@ -80,22 +82,19 @@ class LoginController extends GetxController {
     }
   }
 
-  Future<void> googleSignin()async{
+  Future<void> googleSignIn()async{
     try{
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        //! 📢 No bars = no login. Go find WiFi, champ.
-        // TLoaders.warningSnackBar(
-        //   title: 'No Internet',
-        //   message: 'Please connect to the internet and try again.',
-        // );
         return;
       }
       
       TFullScreenLoader.openLoadingDialog('Signing in with Google', TImages.docerAnimation);
 
-      await AuthenticationRepository.instance.signInWithGoogle();
+      final userCredential =  await AuthenticationRepository.instance.signInWithGoogle();
 
+
+      await userController.saveUserRecord(userCredential);
       TFullScreenLoader.stopLoading();
       AuthenticationRepository.instance.screenRedirect();
 

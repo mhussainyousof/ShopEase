@@ -17,7 +17,7 @@ class SocialButtons extends StatelessWidget {
       children: [
         // Google Button
         GestureDetector(
-          onTap: () => controller.googleSignin(),
+          onTap: () => controller.googleSignIn(),
           child: Container(
             padding: EdgeInsets.all(2),
             decoration: BoxDecoration(

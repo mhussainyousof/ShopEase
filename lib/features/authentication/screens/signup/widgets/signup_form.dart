@@ -17,7 +17,7 @@ class SignupForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(SignupController());
     return Form(
-      key: controller.singupFormKey,
+      key: controller.singUpFormKey,
       child: Column(
         children: [
           //! ---- First & Last Name Fields ----

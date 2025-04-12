@@ -29,8 +29,8 @@ class UserModel {
     String firstName = nameParts[0].toLowerCase();
     String lastName =nameParts.length > 1? nameParts[1].toLowerCase() : '';
     String camelCaseUserName = '$firstName$lastName';
-    String userNamewithPrefix = 'cwt_$camelCaseUserName';
-    return userNamewithPrefix;
+    String userNameWithPrefix = 'cwt_$camelCaseUserName';
+    return userNameWithPrefix;
   }
 
   static UserModel empty() => UserModel(id: '', firstName: '', lastName: '', username: '', email: '', phoneNumber: '', profilePicture: '');
