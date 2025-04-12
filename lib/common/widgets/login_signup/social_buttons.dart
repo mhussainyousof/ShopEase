@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_ease/data/repositories/authentication/authentication_repository.dart';
 import 'package:shop_ease/features/authentication/controllers/login/login_controller.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';

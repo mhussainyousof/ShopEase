@@ -30,7 +30,7 @@ class LoginController extends GetxController {
     final savedEmail = localStorage.read('remember_me_email');
     final savedPassword = localStorage.read('remember_me_password');
 
-    //! 🧠 Autocomplete your life if saved creds exist
+    //! 🧠 Autocomplete your life if saved creeds exist
     if (savedEmail != null) email.text = savedEmail;
     if (savedPassword != null) password.text = savedPassword;
 
