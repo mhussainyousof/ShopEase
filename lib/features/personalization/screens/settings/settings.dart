@@ -60,7 +60,7 @@ class SettingScreen extends StatelessWidget {
                   ESettingsMenuTile(
                       icon: Iconsax.bank,
                       title: 'Bank Account',
-                      subtitle: 'Withdraw balance to rigestered bank account'),
+                      subtitle: 'Withdraw balance to registered bank account'),
                   ESettingsMenuTile(
                       icon: Iconsax.discount_shape,
                       title: 'My Coupons',

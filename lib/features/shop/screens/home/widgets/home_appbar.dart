@@ -34,7 +34,6 @@ class HomeAppbar extends StatelessWidget {
             else
             { return Text(
               controller.userModel.value.fullName,
-              // TTexts.homeAppbarSubTitle,
               style: Theme.of(context)
                   .textTheme
                   .headlineSmall!
