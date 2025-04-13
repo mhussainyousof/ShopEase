@@ -7,63 +7,79 @@ import 'package:shop_ease/utils/popups/full_screen_loader.dart';
 import 'package:shop_ease/utils/popups/loaders.dart';
 import '../../../../utils/helpers/network_manager.dart';
 
-class ForgetPasswordController extends GetxController{
+class ForgetPasswordController extends GetxController {
+  // Singleton instance of the controller for easy access via GetX
   static ForgetPasswordController get instance => Get.find();
 
+  // Text editing controller for email input field
   final email = TextEditingController();
+
+  // GlobalKey to manage and validate the form state
   GlobalKey<FormState> forgetPasswordKey = GlobalKey<FormState>();
 
-  sendPasswordResetEmail()async{
-    try{
+  /// Sends a password reset email to the user-entered email address.
+  /// Validates network connection and form before proceeding.
+  sendPasswordResetEmail() async {
+    try {
+      // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {
-        return;
-      }
+      if (!isConnected) return;
 
+      // Validate form (e.g., email format, non-empty)
       if (!forgetPasswordKey.currentState!.validate()) return;
 
-
-      //! ⏳ Dramatic loading animation because... UX, baby
+      // Show loading animation
       TFullScreenLoader.openLoadingDialog(
         'Logging you in...',
         TImages.docerAnimation,
       );
 
-      await AuthenticationRepository.instance.sendPasswordResetEmail(email.text.trim());
+      // Attempt to send reset email through authentication service
+      await AuthenticationRepository.instance
+          .sendPasswordResetEmail(email.text.trim());
 
+      // Hide loader and show success message
       TFullScreenLoader.stopLoading();
-      TLoaders.successSnackBar(title: 'Email Sent', message: 'Email Link Sent to Reset Your Password'.tr);
-      Get.to(()=> ResetPasswordScreen(email: email.text.trim()));
+      TLoaders.successSnackBar(
+        title: 'Email Sent',
+        message: 'Email Link Sent to Reset Your Password'.tr,
+      );
 
-    }catch(e){
+      // Navigate to Reset Password screen with the current email
+      Get.to(() => ResetPasswordScreen(email: email.text.trim()));
+    } catch (e) {
+      // Handle any exception by stopping the loader and showing error snackbar
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
 
-  resendPasswordResetEmail(String email)async{
-    try{
+  /// Allows resending a password reset email using a passed-in email.
+  resendPasswordResetEmail(String email) async {
+    try {
+      // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {
-        return;
-      }
+      if (!isConnected) return;
 
-
-      //! ⏳ Dramatic loading animation because... UX, baby
+      // Show loading animation
       TFullScreenLoader.openLoadingDialog(
         'Logging you in...',
         TImages.docerAnimation,
       );
 
+      // Attempt to send the reset email
       await AuthenticationRepository.instance.sendPasswordResetEmail(email);
 
+      // Stop loader and show success message
       TFullScreenLoader.stopLoading();
-      TLoaders.successSnackBar(title: 'Email Sent', message: 'Email Link Sent to Reset Your Password'.tr);
-
-    }catch(e){
+      TLoaders.successSnackBar(
+        title: 'Email Sent',
+        message: 'Email Link Sent to Reset Your Password'.tr,
+      );
+    } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
-
 }
+
