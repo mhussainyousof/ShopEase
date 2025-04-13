@@ -8,53 +8,82 @@ import 'package:shop_ease/utils/helpers/network_manager.dart';
 import 'package:shop_ease/utils/popups/full_screen_loader.dart';
 import 'package:shop_ease/utils/popups/loaders.dart';
 
-class UpdateNameController extends GetxController{
+class UpdateNameController extends GetxController {
+  // Controllers to handle user input for first and last name
   final firstName = TextEditingController();
   final lastName = TextEditingController();
+
+  // Access the userController instance to get user data
   final userController = UserController.instance;
+
+  // Get the UserRepository instance to interact with Firestore
   final UserRepository userRepository = Get.find();
+
+  // Global key for the form validation
   GlobalKey<FormState> updateUserNameFormKey = GlobalKey<FormState>();
 
+  // Initialization function to set the initial values for first and last names
   @override
-  void onInit(){
+  void onInit() {
     initializeNames();
     super.onInit();
   }
 
-  Future<void> initializeNames()async{
+  // Function to initialize the first and last name text fields with the current user data
+  Future<void> initializeNames() async {
+    // Set the initial text of first and last name from the user model
     firstName.text = userController.userModel.value.firstName;
     lastName.text = userController.userModel.value.lastName;
   }
 
-
-  Future<void> updateUserName()async{
-    try{
+  // Function to handle name update
+  Future<void> updateUserName() async {
+    try {
+      // Check if the device has network connectivity
       final isConnected = await NetworkManager.instance.isConnected();
+
+      // If no connection, do nothing
       if (!isConnected) {
         return;
       }
 
-      //! 🧪 Sanity check: make sure the form isn’t trash
+      // Validate the form (check if the input is correct)
       if (!updateUserNameFormKey.currentState!.validate()) return;
 
-      //! ⏳ Dramatic loading animation because... UX, baby
+      // Show a loading dialog while the name is being updated
       TFullScreenLoader.openLoadingDialog(
         'We are updating your information...',
         TImages.docerAnimation,
       );
 
-      Map<String, dynamic> name = {'FirstName' : firstName.text.trim(), 'LastName': lastName.text.trim()};
+      // Prepare the data (new first and last name) to be updated in Firestore
+      Map<String, dynamic> name = {
+        'FirstName': firstName.text.trim(),
+        'LastName': lastName.text.trim()
+      };
+
+      // Update the name in Firestore using the repository
       await userRepository.updateSingleField(name);
 
+      // Update the local user model with the new name
       userController.userModel.value.firstName = firstName.text.trim();
       userController.userModel.value.lastName = lastName.text.trim();
 
+      // Stop the loading dialog
       TFullScreenLoader.stopLoading();
+
+      // Show a success message
       TLoaders.successSnackBar(title: 'Congratulations', message: 'Your Name has been updated');
-      Get.off(()=> ProfileScreen());
-    }catch(e){
+
+      // Navigate to the Profile screen after the update
+      Get.off(() => ProfileScreen());
+    } catch (e) {
+      // Stop the loading dialog if an error occurs
       TFullScreenLoader.stopLoading();
+
+      // Show an error message
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
 }
+

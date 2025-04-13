@@ -12,48 +12,62 @@ class ChangeName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the controller for managing name change logic
     final controller = Get.put(UpdateNameController());
+
     return Scaffold(
       appBar: MyAppBar(
-          showBackArrow: true,
-          title: Text('Change Name',
-              style: Theme.of(context).textTheme.headlineSmall)),
+        showBackArrow: true, // Add a back arrow to the app bar
+        title: Text(
+          'Change Name', // Title of the page
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+      ),
       body: Padding(
-        padding: EdgeInsets.all(TSizes.defaultSpace),
+        padding: EdgeInsets.all(TSizes.defaultSpace), // Padding around the content
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start, // Aligning text to the left
           children: [
-            Text('Use real name for easy verification'),
-            SizedBox(height: TSizes.spaceBtwSections),
+            Text('Use real name for easy verification'), // Instructions for user
+            SizedBox(height: TSizes.spaceBtwSections), // Space between elements
             Form(
-              key: controller.updateUserNameFormKey,
-                child: Column(
-              children: [
-                TextFormField(
-                  controller: controller.firstName,
-                  validator: (value)=>EValidator.validateEmptyText('FirstName', value),
-                  decoration: InputDecoration(
-
-                      labelText: TTexts.firstName,
-                      prefixIcon: Icon(Iconsax.user)),
-                ),
-                SizedBox(height: TSizes.spaceBtwItems),
-                TextFormField(
-                  controller: controller.lastName,
-                validator: (value)=>EValidator.validateEmptyText('LastName', value),
-                  decoration: InputDecoration(
-                      labelText: TTexts.lastName,
-                      prefixIcon: Icon(Iconsax.user)),
-                )
-              ],
-            )),
-            SizedBox(height: TSizes.spaceBtwSections),
+              key: controller.updateUserNameFormKey, // Form validation key
+              child: Column(
+                children: [
+                  // Text field for the first name
+                  TextFormField(
+                    controller: controller.firstName, // Controller for managing the input
+                    validator: (value) => EValidator.validateEmptyText('FirstName', value), // Validation for non-empty first name
+                    decoration: InputDecoration(
+                      labelText: TTexts.firstName, // Label for the text field
+                      prefixIcon: Icon(Iconsax.user), // Icon for the text field
+                    ),
+                  ),
+                  SizedBox(height: TSizes.spaceBtwItems), // Space between text fields
+                  // Text field for the last name
+                  TextFormField(
+                    controller: controller.lastName, // Controller for managing the input
+                    validator: (value) => EValidator.validateEmptyText('LastName', value), // Validation for non-empty last name
+                    decoration: InputDecoration(
+                      labelText: TTexts.lastName, // Label for the text field
+                      prefixIcon: Icon(Iconsax.user), // Icon for the text field
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: TSizes.spaceBtwSections), // Space between elements
             SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(onPressed: () =>controller.updateUserName(), child: Text('Save')))
+              width: double.infinity, // Make the button full width
+              child: ElevatedButton(
+                onPressed: () => controller.updateUserName(), // Call the update function when button is pressed
+                child: Text('Save'), // Button text
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
