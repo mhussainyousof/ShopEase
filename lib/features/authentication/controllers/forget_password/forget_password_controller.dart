@@ -48,7 +48,6 @@ class ForgetPasswordController extends GetxController {
       // Navigate to Reset Password screen with the current email
       Get.to(() => ResetPasswordScreen(email: email.text.trim()));
     } catch (e) {
-      // Handle any exception by stopping the loader and showing error snackbar
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
