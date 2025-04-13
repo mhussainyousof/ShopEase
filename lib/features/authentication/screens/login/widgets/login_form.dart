@@ -70,7 +70,7 @@ class TLoginForm extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(() => ForgetPassword());
+                    Get.to(() => ForgetPasswordScreen());
                   },
                   child: Text(TTexts.forgetPassword),
                 ),
