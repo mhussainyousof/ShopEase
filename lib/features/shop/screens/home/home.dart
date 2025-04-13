@@ -8,6 +8,7 @@ import 'package:shop_ease/common/widgets/products/cart/bag_count.dart';
 import 'package:shop_ease/common/widgets/products/product_cart/product_card_vertical.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/shop/screens/all_products/all_products.dart';
+import 'package:shop_ease/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
@@ -29,34 +30,7 @@ class HomeScreen extends StatelessWidget {
             DemoCurveWidget(
               child: Column(children: [
                 //! Custom AppBar with title, subtitle, and action button (bag icon)
-                MyAppBar(
-                  title: Column(
-                    children: [
-                      Text(
-                        TTexts.homeAppbarTitle,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium!
-                            .apply(color: Colors.white.withAlpha(200)),
-                      ),
-                      Text(
-                        TTexts.homeAppbarSubTitle,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall!
-                            .apply(color: Colors.white),
-                      )
-                    ],
-                  ),
-                  actions: [
-                    //! Shopping bag icon with item count
-                    BagCountWidget(
-                      iconColor: TColors.white,
-                      onPressed: () {},
-                      
-                    ),
-                  ],
-                ),
+                HomeAppbar(),
                 SizedBox(
                   height: TSizes.spaceBtwSections,
                 ),
@@ -118,3 +92,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+

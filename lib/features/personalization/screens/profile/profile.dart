@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/images/circular_image.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
+import 'package:shop_ease/features/personalization/controllers/user_controller.dart';
+import 'package:shop_ease/features/personalization/screens/changeName/change_name_screen.dart';
 import 'package:shop_ease/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
@@ -12,6 +16,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: MyAppBar(
 
@@ -35,8 +40,8 @@ class ProfileScreen extends StatelessWidget {
 SizedBox(height: TSizes.spaceBtwItems / 2),
 Divider(),
 SizedBox(height: TSizes.spaceBtwItems),
-EProfileMenu(onPressed: (){}, title: 'Name', value: 'Hussin Yousof'),
-EProfileMenu(onPressed: (){}, title: 'UserName', value: 'Hussin UserName'),
+EProfileMenu( title: 'Name', value: controller.userModel.value.fullName,onPressed: ()=>Get.to(()=> ChangeName())),
+EProfileMenu(onPressed: (){}, title: 'UserName', value: controller.userModel.value.username),
 Divider(),
 SizedBox(height: TSizes.spaceBtwItems),
 
@@ -46,9 +51,9 @@ SizedBox(height: TSizes.spaceBtwItems),
 
 RowTextButton(title: 'Profile Information'),
 SizedBox(height: TSizes.spaceBtwItems),
-EProfileMenu(title: 'User ID', value: '34543', onPressed: (){}, icon: Iconsax.copy,),
-EProfileMenu(title: 'Email', value: 'HUssain@gmail.com', onPressed: (){},),
-EProfileMenu(title: 'PhoneNumber', value: '0790375376', onPressed: (){},),
+EProfileMenu(title: 'User ID', value: controller.userModel.value.id, onPressed: (){}, icon: Iconsax.copy,),
+EProfileMenu(title: 'Email', value: controller.userModel.value.email, onPressed: (){},),
+EProfileMenu(title: 'PhoneNumber', value: controller.userModel.value.phoneNumber, onPressed: (){},),
 EProfileMenu(title: 'Gender', value: 'Male', onPressed: (){},),
 EProfileMenu(title: 'Date of Birth', value: '10, Oct, 2000', onPressed: (){},),
 Divider(),
@@ -61,10 +66,10 @@ Center(
     child: Text('Close Account', style: TextStyle(color: Colors.red),)
   )
 )
-
-        ],),
+        ]),
       ),
     );
   }
 }
+
 

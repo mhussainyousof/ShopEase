@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shop_ease/data/repositories/user/user_repository.dart';
 import 'package:shop_ease/features/personalization/models/user_model.dart';
 import 'package:shop_ease/utils/popups/loaders.dart';
@@ -7,7 +8,29 @@ import 'package:shop_ease/utils/popups/loaders.dart';
 class UserController extends GetxController {
   static UserController get instance => Get.find();
 
+  Rx<UserModel> userModel = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
+  final profileLoading = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    fetchUserRecord();
+  }
+
+  Future<void> fetchUserRecord()async{
+try{
+  profileLoading.value = true;
+  final user = await userRepository.fetchUserDetails();
+  userModel(user);
+  profileLoading.value = false;
+}catch(e){
+userModel(UserModel.empty());
+}finally{
+  profileLoading.value = false;
+}
+  }
+
 
   // Function to save user data from Google Sign-In
   Future<void> saveUserRecord(UserCredential? userCredential) async {
@@ -43,4 +66,6 @@ class UserController extends GetxController {
       );
     }
   }
+
+
 }

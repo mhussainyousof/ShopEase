@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/common/widgets/images/circular_image.dart';
+import 'package:shop_ease/features/personalization/controllers/user_controller.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 
@@ -14,6 +15,7 @@ class EUserProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return ListTile(
       leading:  ECircularImage(
         width: 50,
@@ -21,12 +23,13 @@ class EUserProfileTile extends StatelessWidget {
         padding: 0,
         image: TImages.user
       ),
-       title: Text('Hussain Yousof',
+       title: Text(
+         controller.userModel.value.fullName,
           style: Theme.of(context)
               .textTheme
               .headlineSmall!
               .apply(color: TColors.white)),
-       subtitle: Text('mhussainyousof@gmail.com',
+       subtitle: Text(controller.userModel.value.email,
           style: Theme.of(context)
               .textTheme
               .bodyMedium!
