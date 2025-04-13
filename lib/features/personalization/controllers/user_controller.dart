@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shop_ease/data/repositories/user/user_repository.dart';
 import 'package:shop_ease/features/personalization/models/user_model.dart';
@@ -11,6 +12,10 @@ class UserController extends GetxController {
   final userRepository = Get.put(UserRepository());
   final profileLoading = false.obs;
 
+  final hidePassword = false.obs;
+  final verifyEmail = TextEditingController();
+  final verifyPassword = TextEditingController();
+  GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
   @override
   void onInit() {
     super.onInit();
