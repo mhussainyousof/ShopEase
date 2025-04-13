@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:shop_ease/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
