@@ -22,7 +22,7 @@ class ReAuthLoginForm extends StatelessWidget{
       },
 
       child: Scaffold(
-        appBar: AppBar(title: Text('Re_Authenticare User')),
+        appBar: AppBar(title: Text('Re_Authenticate User')),
         body: SingleChildScrollView(
           child: Padding(padding: 
           EdgeInsets.all(TSizes.defaultSpace),

@@ -6,7 +6,7 @@ import 'package:shop_ease/data/repositories/authentication/authentication_reposi
 import 'package:shop_ease/data/repositories/user/user_repository.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/features/personalization/models/user_model.dart';
-import 'package:shop_ease/features/personalization/screens/profile/widgets/reauthenticate_login_form.dart';
+import 'package:shop_ease/features/personalization/screens/profile/widgets/re_authenticate_login_form.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/helpers/network_manager.dart';
@@ -100,7 +100,7 @@ class UserController extends GetxController {
 
   void deleteUserAccount()async {
    try{
-    TFullScreenLoader.openLoadingDialog('Proccessing', TImages.docerAnimation);
+    TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
      final auth = AuthenticationRepository.instance;
     final provider = auth.authUser!.providerData.map((e)=>e.providerId).first;
     if(provider.isNotEmpty){
@@ -132,7 +132,7 @@ class UserController extends GetxController {
 
       if (!reAuthFormKey.currentState!.validate()) return;
 
-      TFullScreenLoader.openLoadingDialog('Proccessing', TImages.docerAnimation);
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
        await AuthenticationRepository.instance.reAuthenticateWithEmailAndPassword(verifyEmail.text.trim(), verifyPassword.text.trim());
        await AuthenticationRepository.instance.deleteAccount();
