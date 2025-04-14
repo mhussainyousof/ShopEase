@@ -16,11 +16,17 @@ import 'package:shop_ease/utils/popups/loaders.dart';
 class UserController extends GetxController {
   static UserController get instance => Get.find();
 
+  // Reactive user model
   Rx<UserModel> userModel = UserModel.empty().obs;
-  final userRepository = Get.put(UserRepository());
-  final profileLoading = false.obs;
 
+  // Repository
+  final userRepository = Get.put(UserRepository());
+
+  // UI state
+  final profileLoading = false.obs;
   final hidePassword = false.obs;
+
+  // Controllers for re-auth form
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
@@ -28,15 +34,15 @@ class UserController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchUserRecord();
+    fetchUserRecord(); // Load user data when controller initializes
   }
 
+  // Fetch user data from repository
   Future<void> fetchUserRecord() async {
     try {
       profileLoading.value = true;
       final user = await userRepository.fetchUserDetails();
       userModel(user);
-      profileLoading.value = false;
     } catch (e) {
       userModel(UserModel.empty());
     } finally {
@@ -44,104 +50,98 @@ class UserController extends GetxController {
     }
   }
 
-  // Function to save user data from Google Sign-In
+  // Save user data after Google sign-in
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
       if (userCredential != null) {
-        //! Check if userCredential is not null
+        final nameParts = UserModel.nameParts(userCredential.user!.displayName ?? '');
+        final userName = UserModel.generateUsername(userCredential.user!.displayName ?? '');
 
-        //! Split the full name into parts (first name, last name)
-        final nameParts =
-            UserModel.nameParts(userCredential.user!.displayName ?? '');
-
-        //! Generate a custom username
-        final userName =
-            UserModel.generateUsername(userCredential.user!.displayName ?? '');
-
-        //! Create a new user object with the data
         final user = UserModel(
-            id: userCredential.user!.uid,
-            firstName: nameParts[0],
-            lastName:
-                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-            username: userName, //! The generated username
-            email: userCredential.user!.email ?? '',
-            phoneNumber: userCredential.user!.phoneNumber ?? '',
-            profilePicture: userCredential.user!.photoURL ?? '');
+          id: userCredential.user!.uid,
+          firstName: nameParts[0],
+          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+          username: userName,
+          email: userCredential.user!.email ?? '',
+          phoneNumber: userCredential.user!.phoneNumber ?? '',
+          profilePicture: userCredential.user!.photoURL ?? '',
+        );
 
-        //! Save the user record to the database (FireStore)
         await userRepository.saveUserRecord(user);
       }
     } catch (e) {
-      //! If an error occurs, show a warning message
       TLoaders.warningSnackBar(
         title: 'Data not saved',
-        message:
-            'Something went wrong saving your information. You can do it in your profile 😞',
+        message: 'Something went wrong saving your information. You can do it in your profile 😞',
       );
     }
   }
 
+  // Show account deletion confirmation dialog
   void deleteAccountWarningPopup() {
     Get.defaultDialog(
       contentPadding: EdgeInsets.all(TSizes.md),
       title: 'Delete Account',
       middleText: 'Sure delete PERMANENTLY?',
       confirm: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red, side: BorderSide(color: Colors.red)),
-          onPressed: () async => deleteUserAccount(),
-          child: Text('Delete')),
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red, side: BorderSide(color: Colors.red)),
+        onPressed: () async => deleteUserAccount(),
+        child: Text('Delete'),
+      ),
       cancel: OutlinedButton(
-          onPressed: () => Navigator.of(Get.overlayContext!).pop(),
-          child: Text('Cancel')),
+        onPressed: () => Navigator.of(Get.overlayContext!).pop(),
+        child: Text('Cancel'),
+      ),
     );
   }
 
-  void deleteUserAccount()async {
-   try{
-    TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
-     final auth = AuthenticationRepository.instance;
-    final provider = auth.authUser!.providerData.map((e)=>e.providerId).first;
-    if(provider.isNotEmpty){
-      if(provider == 'google.com'){
-        await auth.signInWithGoogle();
-        await auth.deleteAccount();
-        TFullScreenLoader.stopLoading();
-        Get.offAll(()=> LoginScreen());
-      }else if(provider == 'password'){
-        TFullScreenLoader.stopLoading();
-        Get.to(()=> ReAuthLoginForm());
-      }
-    }
+  // Delete account based on auth provider
+  void deleteUserAccount() async {
+    try {
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
-   }catch(e){
-    TFullScreenLoader.stopLoading();
-    TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
-   }
+      final auth = AuthenticationRepository.instance;
+      final provider = auth.authUser!.providerData.map((e) => e.providerId).first;
+
+      if (provider.isNotEmpty) {
+        if (provider == 'google.com') {
+          await auth.signInWithGoogle(); // Re-authenticate with Google
+          await auth.deleteAccount();     // Then delete account
+          TFullScreenLoader.stopLoading();
+          Get.offAll(() => LoginScreen());
+        } else if (provider == 'password') {
+          TFullScreenLoader.stopLoading();
+          Get.to(() => ReAuthLoginForm()); // Navigate to re-auth form
+        }
+      }
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
   }
 
-  //--------------------------------//
-
-    Future<void> reAuthenticateEmailAndPasswordUser()async {
-   try{
-
-     final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {
-        return;}
+  // Re-authenticate with email/password and delete account
+  Future<void> reAuthenticateEmailAndPasswordUser() async {
+    try {
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) return;
 
       if (!reAuthFormKey.currentState!.validate()) return;
 
       TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
-       await AuthenticationRepository.instance.reAuthenticateWithEmailAndPassword(verifyEmail.text.trim(), verifyPassword.text.trim());
-       await AuthenticationRepository.instance.deleteAccount();
-        TFullScreenLoader.stopLoading();
-        Get.offAll(()=> LoginScreen());
+      await AuthenticationRepository.instance.reAuthenticateWithEmailAndPassword(
+        verifyEmail.text.trim(),
+        verifyPassword.text.trim(),
+      );
 
-   }catch(e){
-    TFullScreenLoader.stopLoading();
-    TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
-   }
+      await AuthenticationRepository.instance.deleteAccount();
+      TFullScreenLoader.stopLoading();
+      Get.offAll(() => LoginScreen());
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
   }
 }
