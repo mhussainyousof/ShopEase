@@ -1,0 +1,2 @@
+C:/Users/hussain_yousof/Desktop/shop_ease/android/app/.cxx/Debug/3u2c3z2z/x86/CMakeFiles/edit_cache.dir
+C:/Users/hussain_yousof/Desktop/shop_ease/android/app/.cxx/Debug/3u2c3z2z/x86/CMakeFiles/rebuild_cache.dir
