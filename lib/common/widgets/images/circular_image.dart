@@ -36,20 +36,23 @@ class ECircularImage extends StatelessWidget {
 
         borderRadius: BorderRadius.circular(100),
       ),
-      child: Center(
-
-        child: isNetworkImages ?
-           CachedNetworkImage(
-               fit: fit,
-               color: overlayColor,
-               progressIndicatorBuilder: (context, url, downloadProgress)=>EShimmerEffect(width: 55, height: 55, radius: 55,),
-               errorWidget: (context, url, error)=>Icon(Icons.error),
-               imageUrl: image) :
-
-        Image(
-          fit: fit,
-          image: AssetImage(image),
-          color: overlayColor,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: Center(
+        
+          child: isNetworkImages ?
+             CachedNetworkImage(
+                 fit: fit,
+                 color: overlayColor,
+                 progressIndicatorBuilder: (context, url, downloadProgress)=>EShimmerEffect(width: 55, height: 55, radius: 55,),
+                 errorWidget: (context, url, error)=>Icon(Icons.error),
+                 imageUrl: image) :
+        
+          Image(
+            fit: fit,
+            image: AssetImage(image),
+            color: overlayColor,
+          ),
         ),
       ),
     );

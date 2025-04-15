@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shop_ease/data/repositories/authentication/authentication_repository.dart';
 import 'package:shop_ease/data/repositories/user/user_repository.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
@@ -23,8 +25,9 @@ class UserController extends GetxController {
   final userRepository = Get.put(UserRepository());
 
   // UI state
-  final profileLoading = false.obs;
   final hidePassword = false.obs;
+  final profileLoading = false.obs;
+  final imageUpLoading = false.obs;
 
   // Controllers for re-auth form
   final verifyEmail = TextEditingController();
@@ -152,6 +155,21 @@ class UserController extends GetxController {
   //---------------//
 
 uploadUserProfilePicture()async{
+try{
+  final image = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 70, maxHeight: 512, maxWidth: 512);
+  if(image != null){
+    imageUpLoading.value= true;
+    final imageUrl = await userRepository.uploadImage('Users/Images/Profile', image);
+    Map<String, dynamic> json = {'profilePicture': imageUrl};
+    await userRepository.updateSingleField(json);
+    userModel.value.profilePicture = imageUrl;
+    userModel.refresh();
 
+  }
+
+
+}catch(e){TLoaders.errorSnackBar(title: 'Oh!, Snap', message: e.toString());}finally{
+  imageUpLoading.value = false;
+}
 }
 }

@@ -7,6 +7,7 @@ import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/personalization/controllers/user_controller.dart';
 import 'package:shop_ease/features/personalization/screens/changeName/change_name_screen.dart';
 import 'package:shop_ease/features/personalization/screens/profile/widgets/profile_menu.dart';
+import 'package:shop_ease/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
@@ -33,7 +34,10 @@ class ProfileScreen extends StatelessWidget {
                 Obx((){
                   final netWorkImage = controller.userModel.value.profilePicture;
                   final image = netWorkImage.isNotEmpty ? netWorkImage : TImages.user;
-                  return ECircularImage(image: image, width: 80, height: 80,isNetworkImages: netWorkImage.isNotEmpty,);
+
+                  return controller.imageUpLoading.value ?
+                      EShimmerEffect(width: 80, height: 80, radius: 80)
+                   : ECircularImage(image: image, width: 80, height: 80,isNetworkImages: netWorkImage.isNotEmpty,);
                 }),
                 TextButton(onPressed: ()=>controller.uploadUserProfilePicture(), child: Text('Change Profile Picture')),
             
