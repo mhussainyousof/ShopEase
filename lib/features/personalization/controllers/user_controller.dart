@@ -53,21 +53,24 @@ class UserController extends GetxController {
   // Save user data after Google sign-in
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
-      if (userCredential != null) {
-        final nameParts = UserModel.nameParts(userCredential.user!.displayName ?? '');
-        final userName = UserModel.generateUsername(userCredential.user!.displayName ?? '');
+      await fetchUserRecord();
+      if(userModel.value.id.isNotEmpty){
+        if (userCredential != null) {
+          final nameParts = UserModel.nameParts(userCredential.user!.displayName ?? '');
+          final userName = UserModel.generateUsername(userCredential.user!.displayName ?? '');
 
-        final user = UserModel(
-          id: userCredential.user!.uid,
-          firstName: nameParts[0],
-          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-          username: userName,
-          email: userCredential.user!.email ?? '',
-          phoneNumber: userCredential.user!.phoneNumber ?? '',
-          profilePicture: userCredential.user!.photoURL ?? '',
-        );
+          final user = UserModel(
+            id: userCredential.user!.uid,
+            firstName: nameParts[0],
+            lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+            username: userName,
+            email: userCredential.user!.email ?? '',
+            phoneNumber: userCredential.user!.phoneNumber ?? '',
+            profilePicture: userCredential.user!.photoURL ?? '',
+          );
 
-        await userRepository.saveUserRecord(user);
+          await userRepository.saveUserRecord(user);
+        }
       }
     } catch (e) {
       TLoaders.warningSnackBar(
@@ -144,4 +147,11 @@ class UserController extends GetxController {
       TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
+
+
+  //---------------//
+
+uploadUserProfilePicture()async{
+
+}
 }
