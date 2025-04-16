@@ -16,29 +16,29 @@ import 'package:shop_ease/utils/popups/loaders.dart';
 class UserController extends GetxController {
   static UserController get instance => Get.find();
 
-  // Reactive user model
+  //! Reactive user model
   Rx<UserModel> userModel = UserModel.empty().obs;
 
-  // Repository
+  //! Repository
   final userRepository = Get.put(UserRepository());
 
-  // UI state
+  //! UI state
   final hidePassword = false.obs;
   final profileLoading = false.obs;
   final imageUpLoading = false.obs;
 
-  // Controllers for re-auth form
+  //! Controllers for re-auth form
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
 
   @override
   void onInit() {
+    fetchUserRecord(); 
     super.onInit();
-    fetchUserRecord(); // Load user data when controller initializes
   }
 
-  // Fetch user data from repository
+  //! Fetch user data from repository
   Future<void> fetchUserRecord() async {
     try {
       profileLoading.value = true;
@@ -51,19 +51,22 @@ class UserController extends GetxController {
     }
   }
 
-  // Save user data after Google sign-in
+  //! Save user data after Google sign-in
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
       await fetchUserRecord();
-      if(userModel.value.id.isNotEmpty){
+      if (userModel.value.id.isNotEmpty) {
         if (userCredential != null) {
-          final nameParts = UserModel.nameParts(userCredential.user!.displayName ?? '');
-          final userName = UserModel.generateUsername(userCredential.user!.displayName ?? '');
+          final nameParts =
+              UserModel.nameParts(userCredential.user!.displayName ?? '');
+          final userName = UserModel.generateUsername(
+              userCredential.user!.displayName ?? '');
 
           final user = UserModel(
             id: userCredential.user!.uid,
             firstName: nameParts[0],
-            lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+            lastName:
+                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
             username: userName,
             email: userCredential.user!.email ?? '',
             phoneNumber: userCredential.user!.phoneNumber ?? '',
@@ -76,12 +79,13 @@ class UserController extends GetxController {
     } catch (e) {
       TLoaders.warningSnackBar(
         title: 'Data not saved',
-        message: 'Something went wrong saving your information. You can do it in your profile 😞',
+        message:
+            'Something went wrong saving your information. You can do it in your profile 😞',
       );
     }
   }
 
-  // Show account deletion confirmation dialog
+  //! Show account deletion confirmation dialog
   void deleteAccountWarningPopup() {
     Get.defaultDialog(
       contentPadding: EdgeInsets.all(TSizes.md),
@@ -100,18 +104,19 @@ class UserController extends GetxController {
     );
   }
 
-  // Delete account based on auth provider
+  //! Delete account based on auth provider
   void deleteUserAccount() async {
     try {
       TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
       final auth = AuthenticationRepository.instance;
-      final provider = auth.authUser!.providerData.map((e) => e.providerId).first;
+      final provider =
+          auth.authUser!.providerData.map((e) => e.providerId).first;
 
       if (provider.isNotEmpty) {
         if (provider == 'google.com') {
           await auth.signInWithGoogle(); // Re-authenticate with Google
-          await auth.deleteAccount();     // Then delete account
+          await auth.deleteAccount(); // Then delete account
           TFullScreenLoader.stopLoading();
           Get.offAll(() => LoginScreen());
         } else if (provider == 'password') {
@@ -125,7 +130,7 @@ class UserController extends GetxController {
     }
   }
 
-  // Re-authenticate with email/password and delete account
+  //! Re-authenticate with email/password and delete account
   Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
       final isConnected = await NetworkManager.instance.isConnected();
@@ -135,7 +140,8 @@ class UserController extends GetxController {
 
       TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
-      await AuthenticationRepository.instance.reAuthenticateWithEmailAndPassword(
+      await AuthenticationRepository.instance
+          .reAuthenticateWithEmailAndPassword(
         verifyEmail.text.trim(),
         verifyPassword.text.trim(),
       );
@@ -149,25 +155,30 @@ class UserController extends GetxController {
     }
   }
 
+  //!---------------//
 
-  //---------------//
+  uploadUserProfilePicture() async {
+    try {
+      final image = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+          imageQuality: 70,
+          maxHeight: 512,
+          maxWidth: 512);
+      if (image != null) {
+        imageUpLoading.value = true;
+        final imageUrl =
+            await userRepository.uploadImage('Users/Images/Profile', image);
+        // final imageUrl = await CloudinaryService.uploadImage(image);
 
-uploadUserProfilePicture()async{
-try{
-  final image = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 70, maxHeight: 512, maxWidth: 512);
-  if(image != null){
-    imageUpLoading.value= true;
-    final imageUrl = await userRepository.uploadImage('Users/Images/Profile', image);
-    Map<String, dynamic> json = {'profilePicture': imageUrl};
-    await userRepository.updateSingleField(json);
-    userModel.value.profilePicture = imageUrl;
-    userModel.refresh();
-
+        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+        await userRepository.updateSingleField(json);
+        userModel.value.profilePicture = imageUrl;
+        userModel.refresh();
+      }
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh!, Snap', message: e.toString());
+    } finally {
+      imageUpLoading.value = false;
+    }
   }
-
-
-}catch(e){TLoaders.errorSnackBar(title: 'Oh!, Snap', message: e.toString());}finally{
-  imageUpLoading.value = false;
-}
-}
 }

@@ -19,64 +19,89 @@ class ProfileScreen extends StatelessWidget {
     final controller = UserController.instance;
     return Scaffold(
       appBar: MyAppBar(
-
         showBackArrow: true,
         title: Text('Profile'),
-
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(TSizes.defaultSpace),
         child: Column(children: [
           SizedBox(
             width: double.infinity,
-            child: Column( 
+            child: Column(
               children: [
-                Obx((){
-                  final netWorkImage = controller.userModel.value.profilePicture;
-                  final image = netWorkImage.isNotEmpty ? netWorkImage : TImages.user;
+                Obx(() {
+                  final netWorkImage =
+                      controller.userModel.value.profilePicture;
+                  final image =
+                      netWorkImage.isNotEmpty ? netWorkImage : TImages.user;
 
-                  return controller.imageUpLoading.value ?
-                      EShimmerEffect(width: 80, height: 80, radius: 80)
-                   : ECircularImage(image: image, width: 80, height: 80,isNetworkImages: netWorkImage.isNotEmpty,);
+                  return controller.imageUpLoading.value
+                      ? EShimmerEffect(width: 80, height: 80, radius: 80)
+                      : ECircularImage(
+                          image: image,
+                          width: 80,
+                          height: 80,
+                          isNetworkImages: netWorkImage.isNotEmpty,
+                        );
                 }),
-                TextButton(onPressed: ()=>controller.uploadUserProfilePicture(), child: Text('Change Profile Picture')),
-            
+                TextButton(
+                    onPressed: () => controller.uploadUserProfilePicture(),
+                    child: Text('Change Profile Picture')),
               ],
             ),
           ),
-SizedBox(height: TSizes.spaceBtwItems / 2),
-Divider(),
-SizedBox(height: TSizes.spaceBtwItems),
-EProfileMenu( title: 'Name', value: controller.userModel.value.fullName,onPressed: ()=>Get.to(()=> ChangeName())),
-EProfileMenu(onPressed: (){}, title: 'UserName', value: controller.userModel.value.username),
-Divider(),
-SizedBox(height: TSizes.spaceBtwItems),
-
-
-
-
-
-RowTextButton(title: 'Profile Information'),
-SizedBox(height: TSizes.spaceBtwItems),
-EProfileMenu(title: 'User ID', value: controller.userModel.value.id, onPressed: (){}, icon: Iconsax.copy,),
-EProfileMenu(title: 'Email', value: controller.userModel.value.email, onPressed: (){},),
-EProfileMenu(title: 'PhoneNumber', value: controller.userModel.value.phoneNumber, onPressed: (){},),
-EProfileMenu(title: 'Gender', value: 'Male', onPressed: (){},),
-EProfileMenu(title: 'Date of Birth', value: '10, Oct, 2000', onPressed: (){},),
-Divider(),
-SizedBox(height: TSizes.spaceBtwItems),
-
-Center(
-  child:
-  TextButton(
-    onPressed:()=>controller.deleteAccountWarningPopup(),
-    child: Text('Close Account', style: TextStyle(color: Colors.red),)
-  )
-)
+          SizedBox(height: TSizes.spaceBtwItems / 2),
+          Divider(),
+          SizedBox(height: TSizes.spaceBtwItems),
+          EProfileMenu(
+              title: 'Name',
+              value: controller.userModel.value.fullName,
+              onPressed: () => Get.to(() => ChangeName())),
+          EProfileMenu(
+              onPressed: () {},
+              title: 'UserName',
+              value: controller.userModel.value.username),
+          Divider(),
+          SizedBox(height: TSizes.spaceBtwItems),
+          RowTextButton(title: 'Profile Information'),
+          SizedBox(height: TSizes.spaceBtwItems),
+          EProfileMenu(
+            title: 'User ID',
+            value: controller.userModel.value.id,
+            onPressed: () {},
+            icon: Iconsax.copy,
+          ),
+          EProfileMenu(
+            title: 'Email',
+            value: controller.userModel.value.email,
+            onPressed: () {},
+          ),
+          EProfileMenu(
+            title: 'PhoneNumber',
+            value: controller.userModel.value.phoneNumber,
+            onPressed: () {},
+          ),
+          EProfileMenu(
+            title: 'Gender',
+            value: 'Male',
+            onPressed: () {},
+          ),
+          EProfileMenu(
+            title: 'Date of Birth',
+            value: '10, Oct, 2000',
+            onPressed: () {},
+          ),
+          Divider(),
+          SizedBox(height: TSizes.spaceBtwItems),
+          Center(
+              child: TextButton(
+                  onPressed: () => controller.deleteAccountWarningPopup(),
+                  child: Text(
+                    'Close Account',
+                    style: TextStyle(color: Colors.red),
+                  )))
         ]),
       ),
     );
   }
 }
-
-

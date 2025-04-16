@@ -43,6 +43,8 @@ dependencies:
   google_sign_in: ^6.3.0
   firebase_storage: ^12.4.5
   cached_network_image: ^3.4.1
+  path: ^1.9.1
+  cloudinary_public: ^0.23.1
 
 #----------------- ./ PACKAGES End -----------------#
 dev_dependencies:
