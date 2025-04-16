@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:shop_ease/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
 import 'shimmer.dart';

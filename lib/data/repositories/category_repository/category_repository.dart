@@ -32,7 +32,7 @@ class CategoryRepository extends GetxController{
  //     final storage = Get.put(TFirebaseStorageService());
  //
  //     for(var category in categories){
- //       final file = await sotrage.getImageDataFromAssets(category.image);
+ //       final file = await storage.getImageDataFromAssets(category.image);
  //       final url = await storage.uploadData('Categories', file, category.name);
  //
  //       category.image = url;

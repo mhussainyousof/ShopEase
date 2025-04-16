@@ -4,7 +4,6 @@ import 'package:shop_ease/common/widgets/image_text/vertical_image_text.dart';
 import 'package:shop_ease/common/widgets/shimmers/category_shimmer.dart';
 import 'package:shop_ease/features/shop/controllers/categories_controller.dart';
 import 'package:shop_ease/features/shop/screens/sub_categories/sub_categories.dart';
-import 'package:shop_ease/utils/constants/image_strings.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({
