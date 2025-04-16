@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/images/circular_image.dart';
+import 'package:shop_ease/common/widgets/shimmers/shimmer.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/personalization/controllers/user_controller.dart';
 import 'package:shop_ease/features/personalization/screens/changeName/change_name_screen.dart';
