@@ -168,7 +168,6 @@ class UserController extends GetxController {
         imageUpLoading.value = true;
         final imageUrl =
             await userRepository.uploadImage('Users/Images/Profile', image);
-        // final imageUrl = await CloudinaryService.uploadImage(image);
 
         Map<String, dynamic> json = {'ProfilePicture': imageUrl};
         await userRepository.updateSingleField(json);

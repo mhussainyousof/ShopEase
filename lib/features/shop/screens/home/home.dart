@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/demo_curved_widget.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:shop_ease/common/widgets/layout/grid_layout.dart';
-import 'package:shop_ease/common/widgets/products/cart/bag_count.dart';
 import 'package:shop_ease/common/widgets/products/product_cart/product_card_vertical.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/shop/screens/all_products/all_products.dart';
 import 'package:shop_ease/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
-import 'package:shop_ease/utils/constants/text_strings.dart';
 import 'widgets/carousel.dart';
 import 'widgets/home_categories.dart';
 
