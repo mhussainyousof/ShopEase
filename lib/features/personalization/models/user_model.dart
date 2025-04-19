@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/formatters/formatter.dart';
 
 class UserModel {

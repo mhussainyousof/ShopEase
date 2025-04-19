@@ -8,7 +8,6 @@ import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/personalization/controllers/user_controller.dart';
 import 'package:shop_ease/features/personalization/screens/changeName/change_name_screen.dart';
 import 'package:shop_ease/features/personalization/screens/profile/widgets/profile_menu.dart';
-import 'package:shop_ease/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
