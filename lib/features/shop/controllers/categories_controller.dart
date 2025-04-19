@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shop_ease/data/repositories/category_repository/category_repository.dart';
 import 'package:shop_ease/features/shop/models/categories_model.dart';
-import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/popups/loaders.dart';
 
 class CategoryController extends GetxController{
