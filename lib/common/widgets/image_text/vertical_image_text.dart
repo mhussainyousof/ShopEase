@@ -43,17 +43,14 @@ class VerticalTextImage extends StatelessWidget {
             SizedBox(
               height: TSizes.defaultSpace / 2,
             ),
-            SizedBox(
-              width: 55,
-              child: Text(
-                title,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
-                    .apply(color: textColor),
-              ),
+            Text(
+              title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: Theme.of(context)
+                  .textTheme
+                  .labelMedium!
+                  .apply(color: textColor),
             )
           ],
         ),
