@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:shop_ease/features/shop/controllers/mock_categories.dart';
 import 'package:shop_ease/features/shop/models/categories_model.dart';
 import 'package:shop_ease/utils/exceptions/platform_exceptions.dart';
 import '../../../utils/exceptions/firebase_exceptions.dart';
