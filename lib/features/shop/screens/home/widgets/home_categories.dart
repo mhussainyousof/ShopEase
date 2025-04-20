@@ -32,7 +32,7 @@ class HomeCategories extends StatelessWidget {
             itemBuilder: (_, index) {
                 final category = controller.featuredCategories[index];
               return VerticalTextImage(
-                isNetworkImage: false,
+                isNetworkImage: true,
                 onTap: () => Get.to(() => SubCategoriesScreen()),
                 image: category.image,
                 title: category.name,
