@@ -87,24 +87,21 @@ class EProductCardVertical extends StatelessWidget {
             SizedBox(height: TSizes.spaceBtwItems / 2),
 
             //! 📃 Product Info Section (Title, Brand, Verification Badge)
-            Padding(
-              padding: EdgeInsets.only(left: TSizes.sm),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  EProductTitleText(
-                    title: productModel.title,
-                    smallSize: true,
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(height: TSizes.spaceBtwItems / 2), // 📏 Spacing
-
-                  //! 🏢 Brand Name with Verification Badge
-                  EBrandTitleWithVerifiedIcon(
-                    title: productModel.brand!.name,
-                  ),
-                ],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                EProductTitleText(
+                  title: productModel.title,
+                  smallSize: true,
+                  textAlign: TextAlign.left,
+                ),
+                SizedBox(height: TSizes.spaceBtwItems / 2), // 📏 Spacing
+            
+                //! 🏢 Brand Name with Verification Badge
+                EBrandTitleWithVerifiedIcon(
+                  title: productModel.brand!.name,
+                ),
+              ],
             ),
             Spacer(),
 

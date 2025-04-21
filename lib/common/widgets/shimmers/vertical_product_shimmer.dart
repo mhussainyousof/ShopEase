@@ -16,7 +16,7 @@ class EVerticalProductShimmer extends StatelessWidget {
     return EGridLayout(
       itemCount: itemCount,
       itemBuilder: (_, __) => const SizedBox(
-        width: 180,
+        // width: 180,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -12,6 +12,7 @@ class ProductController extends GetxController {
 
   @override
   void onInit() {
+
     fetchFeaturedProducts();
     super.onInit();
   }
@@ -20,7 +21,6 @@ class ProductController extends GetxController {
     try {
       // Show loader while loading Products
       isLoading.value = true;
-
       // Fetch Products
       final products = await productRepository.getFeaturedProducts();
 

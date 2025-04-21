@@ -9,7 +9,7 @@ class ProductVariationModel {
   Map<String, String> attributeValues;
 
   ProductVariationModel({
-    required this.id,
+    required this.id, 
     this.sku = '',
     this.image = '',
     this.description = '',
