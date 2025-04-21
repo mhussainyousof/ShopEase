@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:shop_ease/features/authentication/screens/password_configuration/forget_password.dart';
-import 'package:shop_ease/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:shop_ease/features/authentication/screens/signup/signup.dart';
 import 'package:shop_ease/features/authentication/screens/signup/verify_email.dart';
 import 'package:shop_ease/features/personalization/screens/address/address.dart';
@@ -22,7 +21,6 @@ import 'package:shop_ease/features/shop/screens/sub_categories/sub_categories.da
 import 'package:shop_ease/features/shop/screens/wishlist/wishlist.dart';
 import 'package:shop_ease/routes/routes.dart';
 
-import 'package:get/get.dart';
 
 class AppRoutes {
   static final pages = [

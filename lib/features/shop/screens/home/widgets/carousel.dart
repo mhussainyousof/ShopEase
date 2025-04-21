@@ -5,7 +5,6 @@ import 'package:shop_ease/common/widgets/custom_shapes/containers/white_circle.d
 import 'package:shop_ease/common/widgets/images/carousel_images.dart';
 import 'package:shop_ease/common/widgets/shimmers/shimmer.dart';
 import 'package:shop_ease/features/shop/controllers/banners_controller.dart';
-import 'package:shop_ease/features/shop/controllers/home_controller.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 

@@ -9,7 +9,6 @@ import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/shop/controllers/product_controller.dart';
 import 'package:shop_ease/features/shop/screens/all_products/all_products.dart';
 import 'package:shop_ease/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'widgets/carousel.dart';
 import 'widgets/home_categories.dart';
