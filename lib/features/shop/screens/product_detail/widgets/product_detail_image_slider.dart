@@ -19,7 +19,6 @@ class EProductImageSlider extends StatelessWidget {
   });
 
   final ProductModel productModel;
-
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ImagesController());

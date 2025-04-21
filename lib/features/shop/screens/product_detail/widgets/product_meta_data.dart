@@ -4,16 +4,25 @@ import 'package:shop_ease/common/widgets/images/circular_image.dart';
 import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
 import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
+import 'package:shop_ease/features/shop/controllers/product/product_controller.dart';
+import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 class ProductMetaData extends StatelessWidget {
-  const ProductMetaData({super.key});
+  const ProductMetaData({
+    required this.productModel,
+    super.key});
+
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
+        final controller = ProductController.instance;
+        final salePercentage = controller.calculateSalePercentage(productModel.price, productModel.salePrice);
+
     final dark = THelperFunctions.isDarkMode(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,43 +34,44 @@ class ProductMetaData extends StatelessWidget {
               backgroundColor: TColors.secondary.withOpacity(0.8),
               padding: EdgeInsets.symmetric(
                   horizontal: TSizes.sm - 2, vertical: TSizes.xs - 2),
-              child: Text('25%',
+              child: Text('$salePercentage%',
                   style: Theme.of(context)
                       .textTheme
                       .labelLarge!
                       .apply(color: TColors.black, fontSizeFactor: 0.9)),
             ),
             SizedBox(width: TSizes.spaceBtwItems),
+            if(productModel.productType == ProductType.single.toString() && productModel.price > 0)
             Text(
-              '\$250',
+              '\$${productModel.price}',
               style: Theme.of(context)
                   .textTheme
                   .titleSmall!
                   .apply(decoration: TextDecoration.lineThrough),
             ),
-            SizedBox(width: TSizes.spaceBtwItems),
-            EProductPriceText(price: '175', isLarge: true),
+           if(productModel.productType == ProductType.single.toString() && productModel.price > 0) SizedBox(width: TSizes.spaceBtwItems),
+            EProductPriceText(price: controller.getProductPrice(productModel), isLarge: true),
           ],
         ),
         SizedBox(height: TSizes.spaceBtwItems / 1.5),
-        EProductTitleText(title: 'Green Nike Sports Shirt'),
+        EProductTitleText(title: productModel.title),
         SizedBox(height: TSizes.spaceBtwItems / 1.5),
         Row(
           children: [
             EProductTitleText(title: 'Status'),
             SizedBox(width: TSizes.spaceBtwItems),
-            Text('In Stock', style: Theme.of(context).textTheme.titleMedium),
+            Text(controller.getProductPrice(productModel), style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
         SizedBox(height: TSizes.spaceBtwItems / 1.5),
         Row(
           children: [
-            ECircularImage(image: TImages.cosmeticsIcon,
+            ECircularImage(image: productModel.brand != null ?productModel.brand!.image : '',
           width: 32,
           height: 32,
           overlayColor: dark ? TColors.white : TColors.black,
             ),
-            EBrandTitleWithVerifiedIcon(title: 'Nike', maxLines: 1),
+            EBrandTitleWithVerifiedIcon(title: productModel.brand != null ?  productModel.brand!.name : '', maxLines: 1),
           ],
         )
       ],
