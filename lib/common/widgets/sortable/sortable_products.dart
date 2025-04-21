@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/common/widgets/layout/grid_layout.dart';
 import 'package:shop_ease/common/widgets/products/product_cart/product_card_vertical.dart';
+import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
 class ESortableProducts extends StatelessWidget {
@@ -29,7 +30,7 @@ class ESortableProducts extends StatelessWidget {
             ),
     
             SizedBox(height: TSizes.spaceBtwSections),
-            EGridLayout(itemCount: 2, itemBuilder: (_, index)=>EProductCardVertical())
+          EGridLayout(itemCount: 2, itemBuilder: (_, index)=>EProductCardVertical(productModel: ProductModel.empty()))
       ],
     );
   }

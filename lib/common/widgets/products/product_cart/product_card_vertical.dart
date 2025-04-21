@@ -9,6 +9,8 @@ import 'package:shop_ease/common/widgets/images/carousel_images.dart';
 import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
 import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
+import 'package:shop_ease/features/shop/controllers/product_controller.dart';
+import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/features/shop/screens/product_detail/product_detail.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
@@ -16,34 +18,47 @@ import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 class EProductCardVertical extends StatelessWidget {
-  const EProductCardVertical({super.key});
+  const EProductCardVertical({super.key, required this.productModel});
+
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(
+        productModel.price, productModel.salePrice);
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: ()=> Get.to(()=>ProductDetailScreen()),
+      onTap: () => Get.to(() => ProductDetailScreen(
+            productModel: productModel,
+          )),
       child: Container(
         width: 180,
         padding: EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [EShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: dark ? TColors.darkerGrey  : TColors.white,
+          color: dark ? TColors.darkerGrey : TColors.white,
         ),
         child: Column(
           children: [
             //! 🖼️ Product Image Section (Includes Image, Discount Badge & Favorite Icon)
             ERoundedContainer(
               height: 180,
+              width: 180,
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(
                 children: [
-                  ERoundedImage(
-                    imageUrl: TImages.productImage1,
-                    applyImageRadius: true,
+                  Center(
+                    child: ERoundedImage(
+                      isNetworkImage: true,
+                      imageUrl: productModel.thumbnail,
+                      applyImageRadius: true,
+                    ),
                   ),
+
+                  //! sale tag
                   Positioned(
                     top: 10,
                     left: 5,
@@ -52,7 +67,7 @@ class EProductCardVertical extends StatelessWidget {
                       backgroundColor: TColors.secondary.withOpacity(0.8),
                       padding: EdgeInsets.symmetric(
                           horizontal: TSizes.sm, vertical: TSizes.xs),
-                      child: Text('25%',
+                      child: Text('$salePercentage%',
                           style: Theme.of(context).textTheme.labelLarge!.apply(
                                 color: TColors.black,
                               )),
@@ -79,7 +94,7 @@ class EProductCardVertical extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   EProductTitleText(
-                    title: 'Green Nike Air Shoes',
+                    title: productModel.title,
                     smallSize: true,
                     textAlign: TextAlign.left,
                   ),
@@ -87,23 +102,44 @@ class EProductCardVertical extends StatelessWidget {
 
                   //! 🏢 Brand Name with Verification Badge
                   EBrandTitleWithVerifiedIcon(
-                    title: 'Nike',
+                    title: productModel.brand!.name,
                   ),
-                  
                 ],
               ),
             ),
             Spacer(),
+
             //!💰 Price & Add to Cart Button Section
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: TSizes.sm),
-                  child: EProductPriceText(
-                    price: '35.0',
+                Flexible(
+                  child: Column(
+                    children: [
+                      if (productModel.productType ==
+                              ProductType.single.toString() &&
+                          productModel.salePrice > 0)
+                        Padding(
+                          padding: const EdgeInsets.only(left: TSizes.sm),
+                          child: Text(
+                            productModel.price.toString(),
+                            style:
+                                Theme.of(context).textTheme.labelMedium!.apply(
+                                      decoration: TextDecoration.lineThrough,
+                                    ),
+                          ),
+                        ), 
+
+                      /// Price, Show sale price as main price if sale exist.
+                      Padding(
+                        padding: const EdgeInsets.only(left: TSizes.sm),
+                        child: EProductPriceText(
+                            price: controller.getProductPrice(productModel)),
+                      ), 
+                    ],
                   ),
-                ),
+                ), 
+
                 Container(
                   decoration: BoxDecoration(
                     color: TColors.dark,
@@ -131,4 +167,3 @@ class EProductCardVertical extends StatelessWidget {
     );
   }
 }
-

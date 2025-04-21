@@ -5,6 +5,7 @@ import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/icons/circular_icon.dart';
 import 'package:shop_ease/common/widgets/layout/grid_layout.dart';
 import 'package:shop_ease/common/widgets/products/product_cart/product_card_vertical.dart';
+import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/features/shop/screens/home/home.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 
@@ -24,7 +25,7 @@ class FavoriteScreen extends StatelessWidget{
       child: Padding(padding: EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
         children: [
-          EGridLayout(itemCount: 6, itemBuilder: (_,index)=>EProductCardVertical( ))
+          EGridLayout(itemCount: 6, itemBuilder: (_,index)=>EProductCardVertical(productModel: ProductModel.empty()))
         ],
       ),
       ),
