@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
-import 'package:shop_ease/features/shop/controllers/product/product_controller.dart';
 import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/features/shop/screens/product_detail/widgets/bottom_add_to_card_widget.dart';
 import 'package:shop_ease/features/shop/screens/product_detail/widgets/product_detail_image_slider.dart';
