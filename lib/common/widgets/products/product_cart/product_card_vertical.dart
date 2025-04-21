@@ -9,7 +9,7 @@ import 'package:shop_ease/common/widgets/images/carousel_images.dart';
 import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
 import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
-import 'package:shop_ease/features/shop/controllers/product_controller.dart';
+import 'package:shop_ease/features/shop/controllers/product/product_controller.dart';
 import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/features/shop/screens/product_detail/product_detail.dart';
 import 'package:shop_ease/utils/constants/colors.dart';

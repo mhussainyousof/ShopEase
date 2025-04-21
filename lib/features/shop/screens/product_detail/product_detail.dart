@@ -21,12 +21,13 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       bottomNavigationBar: EBottomAddToCardWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            EProductImageSlider(),
+            EProductImageSlider(productModel: productModel),
             Padding(
               padding: EdgeInsets.only(
                   right: TSizes.defaultSpace,
