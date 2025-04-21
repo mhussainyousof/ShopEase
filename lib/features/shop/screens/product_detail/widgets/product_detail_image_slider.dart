@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -36,12 +37,13 @@ class EProductImageSlider extends StatelessWidget {
             child: Padding( 
               padding: const EdgeInsets.all(TSizes.productImageRadius * 2),
               child: Center(child: 
-              
-            
-              Image(image: AssetImage(TImages.productImage5))
-              
+              Obx((){
+                final image = controller.selectedProductImage.value;
+                return CachedNetworkImage(imageUrl: image);
+              })
               ),
             )),
+
          Positioned(
           right: 0,
           bottom: 30,
