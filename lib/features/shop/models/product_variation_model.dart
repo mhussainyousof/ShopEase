@@ -50,6 +50,7 @@ class ProductVariationModel {
       salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
       image: data['Image'] ?? '',
       attributeValues: Map<String, String>.from(data['AttributeValues']),
+      description: data['Description'] ?? 'No description'
     );
   }
 }

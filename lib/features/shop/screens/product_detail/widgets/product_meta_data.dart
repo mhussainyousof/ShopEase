@@ -59,13 +59,15 @@ class ProductMetaData extends StatelessWidget {
           children: [
             EProductTitleText(title: 'Status'),
             SizedBox(width: TSizes.spaceBtwItems),
-            Text(controller.getProductPrice(productModel), style: Theme.of(context).textTheme.titleMedium),
+            Text(controller.getProductStockStatus(productModel.stock), style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
         SizedBox(height: TSizes.spaceBtwItems / 1.5),
         Row(
           children: [
-            ECircularImage(image: productModel.brand != null ?productModel.brand!.image : '',
+            ECircularImage(
+              isNetworkImages: true,
+              image: productModel.brand != null ?productModel.brand!.image : '',
           width: 32,
           height: 32,
           overlayColor: dark ? TColors.white : TColors.black,
