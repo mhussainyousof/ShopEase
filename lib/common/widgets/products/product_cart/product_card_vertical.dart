@@ -58,6 +58,7 @@ class EProductCardVertical extends StatelessWidget {
                   ),
 
                   //! sale tag
+                  if(salePercentage != null)
                   Positioned(
                     top: 10,
                     left: 5,

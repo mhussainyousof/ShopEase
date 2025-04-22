@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_ease/common/widgets/brands/brand_cart.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:shop_ease/features/shop/models/brand_model.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/helpers/helper_functions.dart';
@@ -26,7 +27,9 @@ class EBrandShowCase extends StatelessWidget {
       child: Column(
         children: [
           //! Brand card at the top
-          EBrandCard(showBorder: false),
+          EBrandCard(
+            brandModel: BrandModel.empty(),
+            showBorder: false),
           SizedBox(height: TSizes.spaceBtwItems),
 
           //! Row displaying brand's top products as images

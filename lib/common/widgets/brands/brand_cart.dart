@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop_ease/common/widgets/images/circular_image.dart';
 import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
+import 'package:shop_ease/features/shop/models/brand_model.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/enums.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
@@ -10,9 +11,11 @@ import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 class EBrandCard extends StatelessWidget {
   const EBrandCard({
+    required this.brandModel,
     super.key, required this.showBorder, this.onTap,
   });
 
+    final BrandModel brandModel;
     final bool showBorder;
     final void Function()? onTap;
 
@@ -33,8 +36,8 @@ class EBrandCard extends StatelessWidget {
           children: [
             Flexible(
               child: ECircularImage(
-                isNetworkImages: false,
-                image: TImages.clothIcon,
+                isNetworkImages: true,
+                image: brandModel.image,
                 backgroundColor: Colors.transparent,
                 overlayColor: dark ? TColors.white : TColors.black,
               ),
@@ -46,10 +49,10 @@ class EBrandCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   EBrandTitleWithVerifiedIcon(
-                title: 'Nike',
+                title: brandModel.name,
                 brandTextSize: TextSizes.large,
               ),
-                Text('256 Products',
+                Text(' ${brandModel.productsCount ?? 0} Products',
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.labelMedium,
                 )

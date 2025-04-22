@@ -6,8 +6,12 @@ import 'package:shop_ease/common/widgets/brands/brand_cart.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:shop_ease/common/widgets/layout/grid_layout.dart';
 import 'package:shop_ease/common/widgets/products/cart/bag_count.dart';
+import 'package:shop_ease/common/widgets/shimmers/brands_shimmer.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
+import 'package:shop_ease/features/shop/controllers/brand_controller.dart';
+import 'package:shop_ease/features/shop/controllers/categories_controller.dart';
 import 'package:shop_ease/features/shop/screens/brands/all_brands.dart';
+import 'package:shop_ease/features/shop/screens/brands/brand_product.dart';
 import 'package:shop_ease/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
@@ -18,7 +22,9 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Determine if the app is in dark mode
+    final brandController = Get.put(BrandController());
+    final categories = CategoryController.instance.featuredCategories;
+
     final dark = THelperFunctions.isDarkMode(context);
 
     return DefaultTabController(
@@ -43,8 +49,8 @@ class StoreScreen extends StatelessWidget {
             return [
               SliverAppBar(
                 automaticallyImplyLeading: false,
-                pinned: true, 
-                floating: true, 
+                pinned: true,
+                floating: true,
                 backgroundColor: dark ? TColors.black : TColors.white,
                 expandedHeight: 440,
 
@@ -53,7 +59,7 @@ class StoreScreen extends StatelessWidget {
                   padding: EdgeInsets.all(TSizes.defaultSpace),
                   child: ListView(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(), 
+                    physics: NeverScrollableScrollPhysics(),
                     children: [
                       // Search bar
                       SearchContainer(
@@ -67,19 +73,42 @@ class StoreScreen extends StatelessWidget {
                       // Featured brands section
                       RowTextButton(
                         title: 'Featured Brands',
-                        onPressed: () => Get.to(()=> AllBrandsScreen()),
+                        onPressed: () => Get.to(() => AllBrandsScreen()),
                         showActionButton: true,
                       ),
                       SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
                       // Grid layout for featured brand logos
-                      EGridLayout(
-                        mainAxisExtent: 80,
-                        itemCount: 4,
-                        itemBuilder: (_, index) {
-                          return EBrandCard(showBorder: true);
-                        },
-                      )
+                      Obx(() {
+                        if (brandController.isLoading.value) {
+                          return const EBrandsShimmer();
+                        }
+
+                        if (brandController.featuredBrands.isEmpty) {
+                          return Center(
+                            child: Text(
+                              'No Data Found!',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .apply(color: Colors.white),
+                            ),
+                          );
+                        }
+
+                        return EGridLayout(
+                          itemCount: brandController.featuredBrands.length,
+                          mainAxisExtent: 80,
+                          itemBuilder: (_, index) {
+                            final brand = brandController.featuredBrands[index];
+                            return EBrandCard(
+                                onTap: () =>
+                                    Get.to(() => BrandProducts(brand: brand)),
+                                showBorder: true,
+                                brandModel: brand);
+                          },
+                        );
+                      })
                     ],
                   ),
                 ),
