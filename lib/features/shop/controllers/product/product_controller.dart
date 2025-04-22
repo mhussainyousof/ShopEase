@@ -12,7 +12,6 @@ class ProductController extends GetxController {
 
   @override
   void onInit() {
-
     fetchFeaturedProducts();
     super.onInit();
   }
@@ -34,52 +33,59 @@ class ProductController extends GetxController {
   }
 
 
-  String getProductPrice(ProductModel product){
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async {
+  try {
+    // Fetch Products
+    final products = await productRepository.getFeaturedProducts();
+    return products;
+  } catch (e) {
+    TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+    return [];
+  }
+}
+
+
+  String getProductPrice(ProductModel product) {
     double smallestPrice = double.infinity;
     double largestPrice = 0.0;
 
-    if(product.productType == ProductType.single.toString()){
-      return (product.salePrice > 0 ? product.salePrice : product.price).toString();
+    if (product.productType == ProductType.single.toString()) {
+      return (product.salePrice > 0 ? product.salePrice : product.price)
+          .toString();
+    } else {
+      for (var variation in product.productVariations!) {
+        double priceToConsider =
+            variation.salePrice > 0.0 ? variation.salePrice : variation.price;
 
-    }else{
-      for(var variation in product.productVariations!){
-        double priceToConsider = variation.salePrice > 0.0 ? variation.salePrice : variation.price;
-
-        if(priceToConsider < smallestPrice){
-          smallestPrice  = priceToConsider;
+        if (priceToConsider < smallestPrice) {
+          smallestPrice = priceToConsider;
         }
-        
-        if(priceToConsider > largestPrice){
+
+        if (priceToConsider > largestPrice) {
           largestPrice = priceToConsider;
         }
-
-
-
       }
 
-      if(smallestPrice.isEqual(largestPrice)){
+      if (smallestPrice.isEqual(largestPrice)) {
         return largestPrice.toString();
-      }else{
+      } else {
         return '$smallestPrice - \$$largestPrice';
       }
     }
-
-
   }
 
   String? calculateSalePercentage(double originalPrice, double? salePrice) {
-  if (salePrice == null || salePrice <= 0.0) return null;
-  if (originalPrice <= 0) return null;
+    if (salePrice == null || salePrice <= 0.0) return null;
+    if (originalPrice <= 0) return null;
 
-  double percentage = ((originalPrice - salePrice) / originalPrice) * 100;
-  return percentage.toStringAsFixed(0);
+    double percentage = ((originalPrice - salePrice) / originalPrice) * 100;
+    return percentage.toStringAsFixed(0);
+  }
+
+  /// -- Check Product Stock Status
+  String getProductStockStatus(int stock) {
+    return stock > 0 ? 'In Stock' : 'Out of Stock';
+  }
 }
 
-/// -- Check Product Stock Status
-String getProductStockStatus(int stock) {
-  return stock > 0 ? 'In Stock' : 'Out of Stock';
-}
-}
-
-
-enum ProductType {single, variable}
+enum ProductType { single, variable }

@@ -36,7 +36,7 @@ class AppRoutes {
     GetPage(name: ERoutes.checkout, page: () => CheckoutScreen()),
     GetPage(name: ERoutes.cart, page: () => CartScreen()),
     GetPage(name: ERoutes.brand, page: () => AllBrandsScreen()),
-    GetPage(name: ERoutes.allProducts, page: () => AllProductsScreen()),
+    GetPage(name: ERoutes.allProducts, page: () => AllProductsScreen(title: '',)),
     GetPage(name: ERoutes.userProfile, page: () => ProfileScreen()),
     GetPage(name: ERoutes.userAddress, page: () => UserAddressScreen()),
     GetPage(name: ERoutes.signUp, page: () => SignupScreen()),

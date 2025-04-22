@@ -71,7 +71,10 @@ class HomeScreen extends StatelessWidget {
                   RowTextButton(
                     title: 'Popular Products',
                     showActionButton: true,
-                       onPressed: ()=> Get.to(()=> AllProductsScreen()),
+                       onPressed: ()=> Get.to(()=> AllProductsScreen(
+                        title:"Popular Products",
+                        futureMethod: controller.fetchAllFeaturedProducts()
+                       )),
                   ),
                  Obx((){
                   if(controller.isLoading.value)return EVerticalProductShimmer();

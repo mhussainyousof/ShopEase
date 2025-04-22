@@ -20,7 +20,9 @@ class BrandProduct extends StatelessWidget{
         children: [
           EBrandCard(showBorder: true),
           SizedBox(height: TSizes.spaceBtwSections),
-          ESortableProducts()
+          ESortableProducts(
+            products: [],
+          )
         ],
       ),
       ),
