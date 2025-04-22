@@ -9,7 +9,6 @@ import 'package:shop_ease/common/widgets/products/cart/bag_count.dart';
 import 'package:shop_ease/common/widgets/shimmers/brands_shimmer.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/shop/controllers/brand_controller.dart';
-import 'package:shop_ease/features/shop/controllers/categories_controller.dart';
 import 'package:shop_ease/features/shop/screens/brands/all_brands.dart';
 import 'package:shop_ease/features/shop/screens/brands/brand_product.dart';
 import 'package:shop_ease/features/shop/screens/store/widgets/category_tab.dart';
@@ -23,7 +22,6 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final brandController = Get.put(BrandController());
-    final categories = CategoryController.instance.featuredCategories;
 
     final dark = THelperFunctions.isDarkMode(context);
 
