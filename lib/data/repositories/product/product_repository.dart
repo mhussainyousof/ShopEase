@@ -8,10 +8,10 @@ import 'package:shop_ease/utils/exceptions/platform_exceptions.dart';
 class ProductRepository extends GetxController {
   static ProductRepository get instance => Get.find();
 
-  // Firestore instance for database interactions
+  //! Firestore instance for database interactions
   final _db = FirebaseFirestore.instance;
 
-  /// Get limited featured products
+  //! Get limited featured products
   Future<List<ProductModel>> getFeaturedProducts() async {
     try {
       final snapshot = await _db
@@ -30,7 +30,7 @@ class ProductRepository extends GetxController {
     }
   }
 
-  /// Get Limited Featured Products
+  //! Get Limited Featured Products
   Future<List<ProductModel>> getAllFeaturedProducts() async {
     try {
       final snapshot = await _db
@@ -47,7 +47,7 @@ class ProductRepository extends GetxController {
     }
   }
 
-  // Get Products based on the Brand
+  //! Get Products based on the Brand
   Future<List<ProductModel>> fetchProductsByQuery(Query query) async {
     try {
       final querySnapshot = await query.get();

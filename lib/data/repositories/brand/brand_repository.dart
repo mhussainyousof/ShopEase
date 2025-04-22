@@ -9,10 +9,10 @@ import 'package:shop_ease/utils/exceptions/platform_exceptions.dart';
 class BrandRepository extends GetxController {
   static BrandRepository get instance => Get.find();
 
-  // Variables
+  //! Variables
   final _db = FirebaseFirestore.instance;
 
-  // Get all brands
+  //! Get all brands
   Future<List<BrandModel>> getAllBrands() async {
     try {
       final snapshot = await _db.collection('Brands').get();
@@ -29,7 +29,7 @@ class BrandRepository extends GetxController {
     }
   }
 
-  // Get Brands For Category
+  //! Get Brands For Category
   Future<List<BrandModel>> getBrandsForCategory(String categoryId) async {
     try {
       final snapshot = await _db

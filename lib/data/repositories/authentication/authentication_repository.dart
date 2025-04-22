@@ -137,7 +137,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  //----------------------------------------------//
+  //!----------------------------------------------//!
   Future<void> reAuthenticateWithEmailAndPassword(
       String email, String password) async {
     try {

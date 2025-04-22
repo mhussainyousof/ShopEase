@@ -14,8 +14,6 @@ class CategoryRepository extends GetxController{
 
  Future<List<CategoryModel>> getAllCategories()async{
    try{
-    //  await Future.delayed(const Duration(milliseconds: 300));
-    //   return mockCategories;
    final snapShot = await _db.collection('Categories').get();
 
    final list = snapShot.docs.map((document)=> CategoryModel.fromSnapshot(document)).toList();
