@@ -1,0 +1,110 @@
+[
+    {
+      "Title": "Jacket SD2L",
+      "Description": "This is the newest Jacket for Winter",
+      "Price": 90,
+      "SalePrice": 0,
+      "Stock": 10,
+      "SKU": "",
+      "CategoryId": "2",
+      "IsFeatured": true,
+      "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226538/leather_jacket_2_owyjtm.png",
+      "Images": [
+        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
+        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226580/leather_jacket_3_jggng9.png",
+        "",
+        ""
+      ],
+      "Brand": {
+        "Id": "3",
+        "Name": "Adidas",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/adidas-logo_txl0ip.png",
+        "IsFeatured": true,
+        "ProductsCount": 4
+      },
+      "ProductAttributes": {
+        "Colors": ["Red", "Black", "Brown"],
+        "Sizes": ["EU 30", "EU 34", "EU 38"]
+      },
+      "ProductVariations": [
+        {
+          "AttributeValues": {
+            "Color": "Brown",
+            "Size": "EU 34"
+          },
+          "Description": "This is the jacket you are looking for",
+          "Image": "",
+          "Price": 0,
+          "SalePrice": 0,
+          "Stock": 10,
+          "SKU": ""
+        },
+        {
+          "AttributeValues": {
+            "Color": "Brown",
+            "Size": "EU 38"
+          },
+          "Description": "This is the jacket you are looking for",
+          "Image": "",
+          "Price": 120,
+          "SalePrice": 0,
+          "Stock": 10,
+          "SKU": ""
+        }
+      ]
+    },
+    {
+      "Title": "iPhone 11",
+      "Description": "Apple iPhone 11 با صفحه‌نمایش 6.1 اینچ Liquid Retina HD، دوربین دوگانه و چیپ A13 Bionic",
+      "Price": 699,
+      "SalePrice": 649,
+      "Stock": 25,
+      "SKU": "APL-IP11-BLK-64",
+      "CategoryId": "8",
+      "IsFeatured": true,
+      "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226491/iphone_12_red_qdmra7.png",
+      "Images": [
+        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226477/iphone_12_blue_xf5k6p.png",
+        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226471/iphone_12_green_wrnlq6.png",
+        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226465/iphone_12_black_xzecc7.png"
+      ],
+      "Brand": {
+        "Id": "2",
+        "Name": "Apple",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/apple-logo_jxdtrd.png",
+        "IsFeatured": true,
+        "ProductsCount": 12
+      },
+      "ProductAttributes": {
+        "Colors": ["Black", "Blue", "Green"],
+        "Sizes": ["64GB", "128GB", "256GB"]
+      },
+      "ProductVariations": [
+        {
+          "AttributeValues": {
+            "Color": "Black",
+            "Size": "64GB"
+          },
+          "Description": "iPhone 11 مشکی با حافظه 64GB",
+          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226465/iphone_12_black_xzecc7.png",
+          "Price": 699,
+          "SalePrice": 649,
+          "Stock": 10,
+          "SKU": "APL-IP11-BLK-64"
+        },
+        {
+          "AttributeValues": {
+            "Color": "Blue",
+            "Size": "128GB"
+          },
+          "Description": "iPhone 11 سفید با حافظه 128GB",
+          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226477/iphone_12_blue_xf5k6p.png",
+          "Price": 749,
+          "SalePrice": 699,
+          "Stock": 8,
+          "SKU": "APL-IP11-BLU-128"
+        }
+      ]
+    }
+  ]
+  

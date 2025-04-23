@@ -9,6 +9,7 @@ import 'package:shop_ease/common/widgets/products/cart/bag_count.dart';
 import 'package:shop_ease/common/widgets/shimmers/brands_shimmer.dart';
 import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/features/shop/controllers/brand_controller.dart';
+import 'package:shop_ease/features/shop/controllers/categories_controller.dart';
 import 'package:shop_ease/features/shop/screens/brands/all_brands.dart';
 import 'package:shop_ease/features/shop/screens/brands/brand_product.dart';
 import 'package:shop_ease/features/shop/screens/store/widgets/category_tab.dart';
@@ -22,7 +23,7 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final brandController = Get.put(BrandController());
-
+    final categories = CategoryController.instance.featuredCategories;
     final dark = THelperFunctions.isDarkMode(context);
 
     return DefaultTabController(
@@ -113,27 +114,18 @@ class StoreScreen extends StatelessWidget {
 
                 // Tab bar with categories
                 bottom: ETabbar(
-                  tabs: [
-                    Tab(child: Text('Sports')),
-                    Tab(child: Text('Furniture')),
-                    Tab(child: Text('Electronics')),
-                    Tab(child: Text('Clothes')),
-                    Tab(child: Text('Cosmetics')),
-                  ],
+                  tabs: categories.map((category)=>Tab(child: Text(category.name))).toList()
                 ),
               )
             ];
           },
 
           // Content of each tab
+          /// -- Body -- Tutorial [Section # 3, Video # 8]
           body: TabBarView(
-            children: [
-              ECategoryTab(),
-              ECategoryTab(),
-              ECategoryTab(),
-              ECategoryTab(),
-              ECategoryTab(),
-            ],
+            children: categories
+                .map((category) => TCategoryTab(category: category))
+                .toList(),
           ),
         ),
       ),

@@ -56,7 +56,7 @@ class EProductCardVertical extends StatelessWidget {
                       applyImageRadius: true,
                     ),
                   ),
-
+        
                   //! sale tag
                   if(salePercentage != null)
                   Positioned(
@@ -84,9 +84,9 @@ class EProductCardVertical extends StatelessWidget {
                 ],
               ),
             ),
-
+        
             SizedBox(height: TSizes.spaceBtwItems / 2),
-
+        
             //! 📃 Product Info Section (Title, Brand, Verification Badge)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,7 +105,7 @@ class EProductCardVertical extends StatelessWidget {
               ],
             ),
             Spacer(),
-
+        
             //!💰 Price & Add to Cart Button Section
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,7 +126,7 @@ class EProductCardVertical extends StatelessWidget {
                                     ),
                           ),
                         ), 
-
+        
                       /// Price, Show sale price as main price if sale exist.
                       Padding(
                         padding: const EdgeInsets.only(left: TSizes.sm),
@@ -136,7 +136,7 @@ class EProductCardVertical extends StatelessWidget {
                     ],
                   ),
                 ), 
-
+        
                 Container(
                   decoration: BoxDecoration(
                     color: TColors.dark,

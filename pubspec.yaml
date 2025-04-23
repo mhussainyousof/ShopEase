@@ -75,6 +75,7 @@ flutter:
    - assets/images/products/
    - assets/images/user/
    - assets/images/reviews/
+   - assets/data/products.json
 
 
 

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:shop_ease/data/repositories/category_repository/category_repository.dart';
+import 'package:shop_ease/data/repositories/product/product_repository.dart';
 import 'package:shop_ease/features/shop/models/categories_model.dart';
+import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/utils/popups/loaders.dart';
 
 class CategoryController extends GetxController{
@@ -31,4 +33,15 @@ class CategoryController extends GetxController{
       isLoading.value = false;
     }
   }
+
+  //! Get Category or Sub-Category Products.
+Future<List<ProductModel>> getCategoryProducts({required String categoryId, int limit = 4}) async {
+  //! Fetch limited (4) products against each subCategory;
+  final products = await ProductRepository.instance.getProductsForCategory(
+    categoryId: categoryId,
+    limit: limit,
+  );
+  return products;
+}
+
 }
