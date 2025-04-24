@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:shop_ease/common/widgets/icons/circular_icon.dart';
 import 'package:shop_ease/common/widgets/images/carousel_images.dart';
 import 'package:shop_ease/common/widgets/products/favorite_icon/favorite_icon.dart';
 import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';

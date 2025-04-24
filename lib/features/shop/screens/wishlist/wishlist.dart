@@ -8,7 +8,6 @@ import 'package:shop_ease/common/widgets/loaders/animation_loader.dart';
 import 'package:shop_ease/common/widgets/products/product_cart/product_card_vertical.dart';
 import 'package:shop_ease/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:shop_ease/features/shop/controllers/product/favorite_controller.dart';
-import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/features/shop/screens/home/home.dart';
 import 'package:shop_ease/navigation_home.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
