@@ -5,15 +5,15 @@
       "Price": 90,
       "SalePrice": 0,
       "Stock": 10,
-      "SKU": "",
+      "SKU": "APL-IP11-BLK-64",
       "CategoryId": "2",
       "IsFeatured": true,
       "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226538/leather_jacket_2_owyjtm.png",
+      "ProductType": "ProductType.variable",
+
       "Images": [
         "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
-        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226580/leather_jacket_3_jggng9.png",
-        "",
-        ""
+        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226580/leather_jacket_3_jggng9.png"
       ],
       "Brand": {
         "Id": "3",
@@ -22,10 +22,13 @@
         "IsFeatured": true,
         "ProductsCount": 4
       },
-      "ProductAttributes": {
-        "Colors": ["Red", "Black", "Brown"],
-        "Sizes": ["EU 30", "EU 34", "EU 38"]
-      },
+
+      "ProductAttributes": [
+  { "Name": "Color", "Values": ["Red", "Black", "Brown"] },
+  { "Name": "Size", "Values": ["EU 30", "EU 34", "EU 38"] }
+],
+
+
       "ProductVariations": [
         {
           "AttributeValues": {
@@ -33,9 +36,9 @@
             "Size": "EU 34"
           },
           "Description": "This is the jacket you are looking for",
-          "Image": "",
-          "Price": 0,
-          "SalePrice": 0,
+          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
+          "Price": 120,
+          "SalePrice": 100,
           "Stock": 10,
           "SKU": ""
         },
@@ -45,7 +48,7 @@
             "Size": "EU 38"
           },
           "Description": "This is the jacket you are looking for",
-          "Image": "",
+          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
           "Price": 120,
           "SalePrice": 0,
           "Stock": 10,
@@ -55,7 +58,7 @@
     },
     {
       "Title": "iPhone 11",
-      "Description": "Apple iPhone 11 با صفحه‌نمایش 6.1 اینچ Liquid Retina HD، دوربین دوگانه و چیپ A13 Bionic",
+      "Description": "Apple iPhone 11 features a 6.1-inch Liquid Retina HD display, a dual-camera system, and is powered by the A13 Bionic chip.",
       "Price": 699,
       "SalePrice": 649,
       "Stock": 25,
@@ -63,6 +66,8 @@
       "CategoryId": "8",
       "IsFeatured": true,
       "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226491/iphone_12_red_qdmra7.png",
+      "ProductType": "ProductType.variable",
+
       "Images": [
         "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226477/iphone_12_blue_xf5k6p.png",
         "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226471/iphone_12_green_wrnlq6.png",
@@ -75,34 +80,48 @@
         "IsFeatured": true,
         "ProductsCount": 12
       },
-      "ProductAttributes": {
-        "Colors": ["Black", "Blue", "Green"],
-        "Sizes": ["64GB", "128GB", "256GB"]
-      },
+      "ProductAttributes": [
+      
+        {"Name" : "Color", "Values": ["Black", "Blue", "Green"]},
+        {"Name" : "Size", "Values" : ["64GB", "128GB", "256GB"]}
+      
+    ],
       "ProductVariations": [
         {
           "AttributeValues": {
             "Color": "Black",
             "Size": "64GB"
           },
-          "Description": "iPhone 11 مشکی با حافظه 64GB",
+          "Description": "Black iPhone 11 with 64GB of storage.",
           "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226465/iphone_12_black_xzecc7.png",
           "Price": 699,
           "SalePrice": 649,
           "Stock": 10,
-          "SKU": "APL-IP11-BLK-64"
+          "SKU": ""
         },
         {
           "AttributeValues": {
             "Color": "Blue",
             "Size": "128GB"
           },
-          "Description": "iPhone 11 سفید با حافظه 128GB",
+          "Description": "Blue iPhone 11 with 128GB of storage.",
           "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226477/iphone_12_blue_xf5k6p.png",
           "Price": 749,
           "SalePrice": 699,
           "Stock": 8,
-          "SKU": "APL-IP11-BLU-128"
+          "SKU": ""
+        },
+        {
+          "AttributeValues": {
+            "Color": "Green",
+            "Size": "256GB"
+          },
+          "Description": "Light Green iPhone 11 with 256GB of storage.",
+          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226471/iphone_12_green_wrnlq6.png",
+          "Price": 749,
+          "SalePrice": 699,
+          "Stock": 8,
+          "SKU": ""
         }
       ]
     }
