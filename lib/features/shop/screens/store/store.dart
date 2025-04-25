@@ -19,7 +19,7 @@ import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     final brandController = Get.put(BrandController());
@@ -27,7 +27,7 @@ class StoreScreen extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return DefaultTabController(
-      length: 5, // Define the number of tabs
+      length: categories.length, // Define the number of tabs
       child: Scaffold(
         // Custom app bar with a title and cart button
         appBar: MyAppBar(

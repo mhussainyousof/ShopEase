@@ -32,7 +32,7 @@ class ProductVariationModel {
       'Price': price,
       'SalePrice': salePrice,
       'Stock': stock,
-      'Sku': sku,
+      'SKU': sku,
       'AttributeValues': attributeValues,
     };
   }

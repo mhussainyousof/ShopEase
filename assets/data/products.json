@@ -1,129 +1,307 @@
 [
-    {
-      "Title": "Jacket SD2L",
-      "Description": "This is the newest Jacket for Winter",
-      "Price": 90,
-      "SalePrice": 0,
-      "Stock": 10,
-      "SKU": "APL-IP11-BLK-64",
-      "CategoryId": "2",
+  {
+    "Title": "TrackSuit",
+    "Description": "A black TrackSuit you can wear it while walking in winter.",
+    "Price": 249.99,
+    "SalePrice": 219.99,
+    "Stock": 50,
+    "SKU": "TCK-A15-128",
+    "CategoryId": "5",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226618/tracksuit_black_ts5akx.png",
+    "ProductType": "ProductType.single",
+    "Images": [],
+    "Brand": {
+      "Id": "1",
+      "Name": "Nike",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225876/nike_demuot.png",
       "IsFeatured": true,
-      "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226538/leather_jacket_2_owyjtm.png",
-      "ProductType": "ProductType.variable",
-
-      "Images": [
-        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
-        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226580/leather_jacket_3_jggng9.png"
-      ],
-      "Brand": {
-        "Id": "3",
-        "Name": "Adidas",
-        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/adidas-logo_txl0ip.png",
-        "IsFeatured": true,
-        "ProductsCount": 4
-      },
-
-      "ProductAttributes": [
-  { "Name": "Color", "Values": ["Red", "Black", "Brown"] },
-  { "Name": "Size", "Values": ["EU 30", "EU 34", "EU 38"] }
-],
-
-
-      "ProductVariations": [
-        {
-          "AttributeValues": {
-            "Color": "Brown",
-            "Size": "EU 34"
-          },
-          "Description": "This is the jacket you are looking for",
-          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
-          "Price": 120,
-          "SalePrice": 100,
-          "Stock": 10,
-          "SKU": ""
-        },
-        {
-          "AttributeValues": {
-            "Color": "Brown",
-            "Size": "EU 38"
-          },
-          "Description": "This is the jacket you are looking for",
-          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
-          "Price": 120,
-          "SalePrice": 0,
-          "Stock": 10,
-          "SKU": ""
-        }
-      ]
+      "ProductsCount": 18
     },
-    {
-      "Title": "iPhone 11",
-      "Description": "Apple iPhone 11 features a 6.1-inch Liquid Retina HD display, a dual-camera system, and is powered by the A13 Bionic chip.",
-      "Price": 699,
-      "SalePrice": 649,
-      "Stock": 25,
-      "SKU": "APL-IP11-BLK-64",
-      "CategoryId": "8",
-      "IsFeatured": true,
-      "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226491/iphone_12_red_qdmra7.png",
-      "ProductType": "ProductType.variable",
-
-      "Images": [
-        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226477/iphone_12_blue_xf5k6p.png",
-        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226471/iphone_12_green_wrnlq6.png",
-        "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226465/iphone_12_black_xzecc7.png"
-      ],
-      "Brand": {
-        "Id": "2",
-        "Name": "Apple",
-        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/apple-logo_jxdtrd.png",
-        "IsFeatured": true,
-        "ProductsCount": 12
-      },
-      "ProductAttributes": [
-      
-        {"Name" : "Color", "Values": ["Black", "Blue", "Green"]},
-        {"Name" : "Size", "Values" : ["64GB", "128GB", "256GB"]}
-      
+    "ProductAttributes": [],
+    "ProductVariations": []
+  },
+  {
+    "Title": "Jacket SD2L",
+    "Description": "This is the newest Jacket for Winter",
+    "Price": 90,
+    "SalePrice": 0,
+    "Stock": 10,
+    "SKU": "APL-IP11-BLK-64",
+    "CategoryId": "2",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226538/leather_jacket_2_owyjtm.png",
+    "ProductType": "ProductType.variable",
+    "Images": [
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226580/leather_jacket_3_jggng9.png"
     ],
-      "ProductVariations": [
-        {
-          "AttributeValues": {
-            "Color": "Black",
-            "Size": "64GB"
-          },
-          "Description": "Black iPhone 11 with 64GB of storage.",
-          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226465/iphone_12_black_xzecc7.png",
-          "Price": 699,
-          "SalePrice": 649,
-          "Stock": 10,
-          "SKU": ""
+    "Brand": {
+      "Id": "3",
+      "Name": "Adidas",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/adidas-logo_txl0ip.png",
+      "IsFeatured": true,
+      "ProductsCount": 4
+    },
+    "ProductAttributes": [
+      {
+        "Name": "Color",
+        "Values": [
+          "Red",
+          "Black",
+          "Brown"
+        ]
+      },
+      {
+        "Name": "Size",
+        "Values": [
+          "EU 30",
+          "EU 34",
+          "EU 38"
+        ]
+      }
+    ],
+    "ProductVariations": [
+      {
+        "AttributeValues": {
+          "Color": "Brown",
+          "Size": "EU 34"
         },
-        {
-          "AttributeValues": {
-            "Color": "Blue",
-            "Size": "128GB"
-          },
-          "Description": "Blue iPhone 11 with 128GB of storage.",
-          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226477/iphone_12_blue_xf5k6p.png",
-          "Price": 749,
-          "SalePrice": 699,
-          "Stock": 8,
-          "SKU": ""
+        "Description": "This is the jacket you are looking for",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
+        "Price": 120,
+        "SalePrice": 100,
+        "Stock": 10,
+        "SKU": ""
+      },
+      {
+        "AttributeValues": {
+          "Color": "Brown",
+          "Size": "EU 38"
         },
-        {
-          "AttributeValues": {
-            "Color": "Green",
-            "Size": "256GB"
-          },
-          "Description": "Light Green iPhone 11 with 256GB of storage.",
-          "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226471/iphone_12_green_wrnlq6.png",
-          "Price": 749,
-          "SalePrice": 699,
-          "Stock": 8,
-          "SKU": ""
-        }
-      ]
-    }
-  ]
-  
+        "Description": "This is the jacket you are looking for",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226533/leather_jacket_4_mippgi.png",
+        "Price": 120,
+        "SalePrice": 0,
+        "Stock": 10,
+        "SKU": ""
+      }
+    ]
+  },
+  {
+    "Title": "iPhone 11",
+    "Description": "Apple iPhone 11 features a 6.1-inch Liquid Retina HD display, a dual-camera system, and is powered by the A13 Bionic chip.",
+    "Price": 699,
+    "SalePrice": 649,
+    "Stock": 25,
+    "SKU": "APL-IP11-BLK-64",
+    "CategoryId": "8",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226491/iphone_12_red_qdmra7.png",
+    "ProductType": "ProductType.variable",
+    "Images": [
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226477/iphone_12_blue_xf5k6p.png",
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226471/iphone_12_green_wrnlq6.png",
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226465/iphone_12_black_xzecc7.png"
+    ],
+    "Brand": {
+      "Id": "2",
+      "Name": "Apple",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/apple-logo_jxdtrd.png",
+      "IsFeatured": true,
+      "ProductsCount": 12
+    },
+    "ProductAttributes": [
+      {
+        "Name": "Color",
+        "Values": [
+          "Black",
+          "Blue",
+          "Green"
+        ]
+      },
+      {
+        "Name": "Size",
+        "Values": [
+          "64GB",
+          "128GB",
+          "256GB"
+        ]
+      }
+    ],
+    "ProductVariations": [
+      {
+        "AttributeValues": {
+          "Color": "Black",
+          "Size": "64GB"
+        },
+        "Description": "Black iPhone 11 with 64GB of storage.",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226465/iphone_12_black_xzecc7.png",
+        "Price": 699,
+        "SalePrice": 649,
+        "Stock": 10,
+        "SKU": ""
+      },
+      {
+        "AttributeValues": {
+          "Color": "Blue",
+          "Size": "128GB"
+        },
+        "Description": "Blue iPhone 11 with 128GB of storage.",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226477/iphone_12_blue_xf5k6p.png",
+        "Price": 749,
+        "SalePrice": 699,
+        "Stock": 8,
+        "SKU": ""
+      },
+      {
+        "AttributeValues": {
+          "Color": "Green",
+          "Size": "256GB"
+        },
+        "Description": "Light Green iPhone 11 with 256GB of storage.",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226471/iphone_12_green_wrnlq6.png",
+        "Price": 749,
+        "SalePrice": 699,
+        "Stock": 8,
+        "SKU": ""
+      }
+    ]
+  },
+  {
+    "Title": "Modern Wooden Bed",
+    "Description": "Comfortable and elegant wooden bed. Available in Queen (Red, Cream) and King (Black, Cream).",
+    "Price": 999,
+    "SalePrice": 899,
+    "Stock": 10,
+    "SKU": "WD-BED-MOD",
+    "CategoryId": "5",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226423/bedroom_bed_ufutgr.png",
+    "ProductType": "ProductType.variable",
+    "Images": [
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226423/bedroom_bed_ufutgr.png",
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226436/bedroom_bed_grey_qtq67n.png",
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226434/bedroom_bed_black_c6dosf.png",
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226441/bedroom_bed_with_comforter_uzuadr.png"
+    ],
+    "Brand": {
+      "Id": "4",
+      "Name": "IKEA",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/ikea_logo_h6sn9p.png",
+      "IsFeatured": true,
+      "ProductsCount": 4
+    },
+    "ProductAttributes": [
+      {
+        "Name": "Size",
+        "Values": [
+          "Queen",
+          "King"
+        ]
+      },
+      {
+        "Name": "Color",
+        "Values": [
+          "Red",
+          "Cream",
+          "Black"
+        ]
+      }
+    ],
+    "ProductVariations": [
+      {
+        "AttributeValues": {
+          "Size": "Queen",
+          "Color": "Red"
+        },
+        "Description": "Queen size bed in Red color",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226423/bedroom_bed_ufutgr.png",
+        "Price": 999,
+        "SalePrice": 899,
+        "Stock": 3,
+        "SKU": "WD-BED-Q-RED"
+      },
+      {
+        "AttributeValues": {
+          "Size": "Queen",
+          "Color": "Cream"
+        },
+        "Description": "Queen size bed in Cream color",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226436/bedroom_bed_grey_qtq67n.png",
+        "Price": 999,
+        "SalePrice": 899,
+        "Stock": 2,
+        "SKU": "WD-BED-Q-CRM"
+      },
+      {
+        "AttributeValues": {
+          "Size": "King",
+          "Color": "Black"
+        },
+        "Description": "King size bed in Black color",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226434/bedroom_bed_black_c6dosf.png",
+        "Price": 1099,
+        "SalePrice": 999,
+        "Stock": 3,
+        "SKU": "WD-BED-K-BLK"
+      },
+      {
+        "AttributeValues": {
+          "Size": "King",
+          "Color": "Cream"
+        },
+        "Description": "King size bed in Cream color",
+        "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226441/bedroom_bed_with_comforter_uzuadr.png",
+        "Price": 1099,
+        "SalePrice": 999,
+        "Stock": 2,
+        "SKU": "WD-BED-K-CRM"
+      }
+    ]
+  },
+  {
+    "Title": "Jordan Shadow",
+    "Description": "Black and white Jordan sneakers, perfect for casual and sporty outfits.",
+    "Price": 189.99,
+    "SalePrice": 0,
+    "Stock": 30,
+    "SKU": "JDN-BW-2025",
+    "CategoryId": "3",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226595/product-1_jou8qn.png",
+    "ProductType": "ProductType.single",
+    "Images": [],
+    "Brand": {
+      "Id": "8",
+      "Name": "Jordan",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225876/jordan-logo_f28bvw.png",
+      "IsFeatured": true,
+      "ProductsCount": 11
+    },
+    "ProductAttributes": [],
+    "ProductVariations": []
+  },
+  {
+    "Title": "Herman Miller Ergonomic Chair",
+    "Description": "Premium ergonomic office chair by Herman Miller, designed for maximum comfort and posture support.",
+    "Price": 1199.99,
+    "SalePrice": 0,
+    "Stock": 20,
+    "SKU": "HM-CHR-2025",
+    "CategoryId": "4",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226591/office_chair_1_p3kfbw.png",
+    "ProductType": "ProductType.single",
+    "Images": [],
+    "Brand": {
+      "Id": "9",
+      "Name": "Hermanmiller",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/herman-miller-logo_j4yoqo.png",
+      "IsFeatured": true,
+      "ProductsCount": 5
+    },
+    "ProductAttributes": [],
+    "ProductVariations": []
+  }
+]

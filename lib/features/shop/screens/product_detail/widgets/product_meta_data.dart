@@ -53,7 +53,9 @@ class ProductMetaData extends StatelessWidget {
           ],
         ),
         SizedBox(height: TSizes.spaceBtwItems / 1.5),
-        EProductTitleText(title: productModel.title),
+        EProductTitleText(
+          alignment: Alignment.centerLeft,
+          title: productModel.title),
         SizedBox(height: TSizes.spaceBtwItems / 1.5),
         Row(
           children: [

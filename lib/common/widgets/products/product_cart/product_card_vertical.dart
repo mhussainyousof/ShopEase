@@ -41,10 +41,11 @@ class EProductCardVertical extends StatelessWidget {
           color: dark ? TColors.darkerGrey : TColors.white,
         ),
         child: Column(
+         
           children: [
             //! 🖼️ Product Image Section (Includes Image, Discount Badge & Favorite Icon)
             ERoundedContainer(
-              height: 180,
+              height: 160,
               width: 180,
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(
@@ -85,21 +86,26 @@ class EProductCardVertical extends StatelessWidget {
             SizedBox(height: TSizes.spaceBtwItems / 2),
         
             //! 📃 Product Info Section (Title, Brand, Verification Badge)
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                EProductTitleText(
-                  title: productModel.title,
-                  smallSize: true,
-                  textAlign: TextAlign.left,
-                ),
-                SizedBox(height: TSizes.spaceBtwItems / 2), // 📏 Spacing
-            
-                //! 🏢 Brand Name with Verification Badge
-                EBrandTitleWithVerifiedIcon(
-                  title: productModel.brand!.name,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  EProductTitleText(
+                    alignment: Alignment.centerLeft,
+                    title: productModel.title,
+                    smallSize: true,
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: TSizes.spaceBtwItems / 2), // 📏 Spacing
+              
+                  //! 🏢 Brand Name with Verification Badge
+                  EBrandTitleWithVerifiedIcon(
+                    textAlign: TextAlign.left,
+                    title: productModel.brand!.name,
+                  ),
+                ],
+              ),
             ),
             Spacer(),
         

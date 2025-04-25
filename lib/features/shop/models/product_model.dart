@@ -110,4 +110,6 @@ factory ProductModel.fromQuerySnapshot(QueryDocumentSnapshot<Object?> document) 
 }
 
 
+
+
 }
