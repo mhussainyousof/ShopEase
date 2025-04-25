@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/onboarding.dart';
@@ -31,7 +30,6 @@ class AppRoutes {
     GetPage(name: ERoutes.favorites, page: () => FavoriteScreen()),
     GetPage(name: ERoutes.settings, page: () => SettingScreen()),
     GetPage(name: ERoutes.subCategories, page: () => SubCategoriesScreen(categoryModel:CategoryModel.empty())),
-    // GetPage(name: ERoutes.search, page: () => SearchScreen()),
     GetPage(name: ERoutes.productReview, page: () => ProductReviewsScreen()),
     GetPage(name: ERoutes.productDetail, page: () => ProductDetailScreen(productModel: ProductModel.empty())),
     GetPage(name: ERoutes.order, page: () => OrderScreen()),
@@ -44,7 +42,6 @@ class AppRoutes {
     GetPage(name: ERoutes.signUp, page: () => SignupScreen()),
     GetPage(name: ERoutes.verifyEmail, page: () => VerifyEmailScreen()),
     GetPage(name: ERoutes.signIn, page: () => LoginScreen()),
-    // GetPage(name: ERoutes.resetPassword, page: () => ResetPasswordScreen()),
     GetPage(name: ERoutes.forgetPassword, page: () => ForgetPasswordScreen()),
     GetPage(name: ERoutes.onboarding, page: () => OnBoardingScreen()),
   ];
