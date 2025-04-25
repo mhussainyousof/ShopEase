@@ -6,16 +6,26 @@ import 'package:shop_ease/common/widgets/products/favorite_icon/favorite_icon.da
 import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
 import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
+import 'package:shop_ease/features/shop/controllers/product/product_controller.dart';
+import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 class EProductCartHorizontal extends StatelessWidget {
-  const EProductCartHorizontal({super.key});
+  const EProductCartHorizontal({super.key,
+  required this.product
+  });
+
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(
+        product.price, product.salePrice);
     final dark = THelperFunctions.isDarkMode(context);
     final theme = Theme.of(context).textTheme;
     return Container(
@@ -36,8 +46,10 @@ class EProductCartHorizontal extends StatelessWidget {
                   height: 120,
                   width: 120,
                   child: ERoundedImage(
-                      imageUrl: TImages.productImage1, applyImageRadius: true),
+                    isNetworkImage: true,
+                      imageUrl: product.thumbnail, applyImageRadius: true),
                 ),
+                if(salePercentage != null)
                 Positioned(
                     top: 8,
                     child: ERoundedContainer(
@@ -46,11 +58,11 @@ class EProductCartHorizontal extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: TSizes.sm, vertical: TSizes.xs),
                       child: Text(
-                        '25%',
+                        '$salePercentage%',
                         style: theme.labelLarge!.apply(color: TColors.black),
                       ),
                     )),
-                Positioned(top: 0, right: 0, child: EFavoriteIcon(productId: '',))
+                Positioned(top: 0, right: 0, child: EFavoriteIcon(productId: product.id))
               ],
             ),
           ),
@@ -65,34 +77,64 @@ class EProductCartHorizontal extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       EProductTitleText(
-                          title: 'Green Nike Half Sleeves Shirt',
+                          title: product.title,
                           smallSize: true),
                       SizedBox(height: TSizes.spaceBtwItems / 2),
-                      EBrandTitleWithVerifiedIcon(title: 'Nike')
+                      EBrandTitleWithVerifiedIcon(title: product.brand!.name)
                     ],
                   ),
                   Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Flexible(child: EProductPriceText(price: '234.0')),
+                      Flexible(
+                        child: Column(
+                          children: [
+                            if (product.productType ==
+                                ProductType.single.toString() &&
+                                product.salePrice > 0)
+                              Padding(
+                                padding: const EdgeInsets.only(left: TSizes.sm),
+                                child: Text(
+                                  product.price.toString(),
+                                  style:
+                                  Theme.of(context).textTheme.labelMedium!.apply(
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
+                                ),
+                              ),
+
+                            /// Price, Show sale price as main price if sale exist.
+                            Padding(
+                              padding: const EdgeInsets.only(left: TSizes.sm),
+                              child: EProductPriceText(
+                                  price: controller.getProductPrice(product)),
+                            ),
+                          ],
+                        ),
+                      ),
+
                       Container(
                         decoration: BoxDecoration(
-                            color: TColors.dark,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(TSizes.cardRadiusMd),
-                                bottomRight: Radius.circular(
-                                    TSizes.productImageRadius))),
+                          color: TColors.dark,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(TSizes.cardRadiusMd),
+                              bottomRight:
+                              Radius.circular(TSizes.productImageRadius)),
+                        ),
                         child: SizedBox(
                           width: TSizes.iconLg * 1.2,
                           height: TSizes.iconLg * 1.2,
                           child: Center(
-                            child: Icon(Iconsax.add, color: TColors.white),
+                            child: Icon(
+                              Iconsax.add,
+                              color: TColors.white,
+                            ),
                           ),
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

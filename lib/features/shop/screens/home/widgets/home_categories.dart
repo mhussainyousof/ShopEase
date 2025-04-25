@@ -5,7 +5,6 @@ import 'package:shop_ease/common/widgets/shimmers/category_shimmer.dart';
 import 'package:shop_ease/features/shop/controllers/categories_controller.dart';
 import 'package:shop_ease/features/shop/screens/sub_categories/sub_categories.dart';
 
-
 class HomeCategories extends StatelessWidget {
   const HomeCategories({
     super.key,
@@ -30,10 +29,11 @@ class HomeCategories extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: controller.featuredCategories.length,
             itemBuilder: (_, index) {
-                final category = controller.featuredCategories[index];
+              final category = controller.featuredCategories[index];
               return VerticalTextImage(
                 isNetworkImage: true,
-                onTap: () => Get.to(() => SubCategoriesScreen()),
+                onTap: () =>
+                    Get.to(() => SubCategoriesScreen(categoryModel: category)),
                 image: category.image,
                 title: category.name,
               );

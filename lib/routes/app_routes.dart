@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:shop_ease/features/authentication/screens/login/login.dart';
 import 'package:shop_ease/features/authentication/screens/onboarding/onboarding.dart';
@@ -7,6 +8,7 @@ import 'package:shop_ease/features/authentication/screens/signup/verify_email.da
 import 'package:shop_ease/features/personalization/screens/address/address.dart';
 import 'package:shop_ease/features/personalization/screens/profile/profile.dart';
 import 'package:shop_ease/features/personalization/screens/settings/settings.dart';
+import 'package:shop_ease/features/shop/models/categories_model.dart';
 import 'package:shop_ease/features/shop/models/product_model.dart';
 import 'package:shop_ease/features/shop/screens/all_products/all_products.dart';
 import 'package:shop_ease/features/shop/screens/brands/all_brands.dart';
@@ -28,7 +30,7 @@ class AppRoutes {
     GetPage(name: ERoutes.store, page: () => StoreScreen()),
     GetPage(name: ERoutes.favorites, page: () => FavoriteScreen()),
     GetPage(name: ERoutes.settings, page: () => SettingScreen()),
-    GetPage(name: ERoutes.subCategories, page: () => SubCategoriesScreen()),
+    GetPage(name: ERoutes.subCategories, page: () => SubCategoriesScreen(categoryModel:CategoryModel.empty())),
     // GetPage(name: ERoutes.search, page: () => SearchScreen()),
     GetPage(name: ERoutes.productReview, page: () => ProductReviewsScreen()),
     GetPage(name: ERoutes.productDetail, page: () => ProductDetailScreen(productModel: ProductModel.empty())),
