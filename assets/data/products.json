@@ -303,5 +303,97 @@
     },
     "ProductAttributes": [],
     "ProductVariations": []
+  },
+  {
+    "Title": "Adidas XT 5.0 Cricket Bat",
+    "Description": "High-quality English willow cricket bat from Adidas, ideal for professional and amateur players. Lightweight design with powerful stroke play.",
+    "Price": 90.9,
+    "SalePrice":0,
+    "Stock": 3,
+    "SKU": "AD-CRK-001",
+    "CategoryId": "1",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226545/cricket_bat_ueag2a.png",
+    "ProductType": "ProductType.single",
+    "Images": [],
+    "Brand": {
+      "Id": "3",
+      "Name": "Adidas",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/adidas-logo_txl0ip.png",
+      "IsFeatured": true,
+      "ProductsCount": 1
+    },
+    "ProductAttributes": [],
+    "ProductVariations": []
+  },
+  {
+    "Title": "Nike Flight Soccer Ball",
+    "Description": "Premium match-quality soccer ball by Nike, engineered for consistent flight and excellent touch. Used in top-tier competitions.",
+    "Price": 149.99,
+    "SalePrice": 148.99,
+    "Stock": 50,
+    "SKU": "NK-SCR-2025",
+    "CategoryId": "1",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226428/Adidas_Football_jfklfb.png",
+    "ProductType": "ProductType.single",
+    "Images": [],
+    "Brand": {
+      "Id": "1",
+      "Name": "Nike",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225876/nike_demuot.png",
+      "IsFeatured": true,
+      "ProductsCount": 1
+    },
+    "ProductAttributes": [],
+    "ProductVariations": []
+  },
+
+  {
+    "Title": "Adidas RedBlack Runner",
+    "Description": "Stylish black and red Adidas sneakers designed for both athletic performance and urban style.",
+    "Price": 159.99,
+    "SalePrice": 139.99,
+    "Stock": 25,
+    "SKU": "AD-RB-2025",
+    "CategoryId": "1",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226586/NikeAirJordonSingleOrange_vko7xb.png",
+    "ProductType": "ProductType.single",
+    "Images": [
+      "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226545/NikeAirJOrdonBlackRed_yft7qg.png"],
+    "Brand": {
+      "Id": "3",
+      "Name": "Adidas",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225875/adidas-logo_txl0ip.png",
+      "IsFeatured": true,
+      "ProductsCount": 2
+    },
+    "ProductAttributes": [],
+    "ProductVariations": []
+  },
+  {
+    "Title": "Jordan Ace Tennis Racket",
+    "Description": "High-performance tennis racket by Jordan, designed for precision and power on every shot. Suitable for intermediate to advanced players.",
+    "Price": 229.99,
+    "SalePrice": 199.99,
+    "Stock": 15,
+    "SKU": "JDN-TNS-2025",
+    "CategoryId": "1",
+    "IsFeatured": true,
+    "Thumbnail": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745226608/tennis_racket_iypgwa.png",
+    "ProductType": "ProductType.single",
+    "Images": [],
+    "Brand": {
+      "Id": "8",
+      "Name": "Jordan",
+      "Image": "https://res.cloudinary.com/dqdl8nui0/image/upload/v1745225876/jordan-logo_f28bvw.png",
+      "IsFeatured": true,
+      "ProductsCount": 12
+    },
+
+    "ProductAttributes": [],
+    "ProductVariations": []
   }
+
 ]

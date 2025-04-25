@@ -28,7 +28,7 @@ class EProductCartHorizontal extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
     final theme = Theme.of(context).textTheme;
     return Container(
-      width: 400,
+      width: 325,
       padding: EdgeInsets.all(1),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
