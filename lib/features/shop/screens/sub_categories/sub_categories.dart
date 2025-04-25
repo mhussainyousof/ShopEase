@@ -73,6 +73,7 @@ class SubCategoriesScreen extends StatelessWidget {
                             children: [
                               // Heading
                               RowTextButton(
+                                showActionButton: true,
                                 title: subCategory.name,
                                 onPressed: () => Get.to(
                                   () => AllProductsScreen(
@@ -89,6 +90,7 @@ class SubCategoriesScreen extends StatelessWidget {
                               SizedBox(
                                 height: 120,
                                 child: ListView.separated(
+
                                   itemCount: products.length,
                                   scrollDirection: Axis.horizontal,
                                   separatorBuilder: (context, index) =>
@@ -96,6 +98,7 @@ class SubCategoriesScreen extends StatelessWidget {
                                           width: TSizes.spaceBtwItems),
                                   itemBuilder: (context, index) =>
                                       EProductCartHorizontal(
+
                                           product: products[index]),
                                 ), // ListView.separated
                               ), // SizedBox
