@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_ease/common/widgets/texts/row_text_widget.dart';
 import 'package:shop_ease/data/repositories/address/address_repository.dart';
 import 'package:shop_ease/features/personalization/models/address_model.dart';
+import 'package:shop_ease/features/personalization/screens/address/add_new_address.dart';
+import 'package:shop_ease/features/personalization/screens/address/widgets/single_address.dart';
+import 'package:shop_ease/utils/constants/sizes.dart';
+import 'package:shop_ease/utils/helpers/cloud_helper_functions.dart';
 import 'package:shop_ease/utils/helpers/network_manager.dart';
 import 'package:shop_ease/utils/loaders/circular_loader.dart';
 import 'package:shop_ease/utils/popups/full_screen_loader.dart';
@@ -142,6 +147,52 @@ class AddressController extends GetxController {
       );
     }
   }
+
+
+
+  // Show Addresses ModalBottomSheet at Checkout
+Future<dynamic> selectNewAddressPopup(BuildContext context) {
+  return showModalBottomSheet(
+    context: context,
+    builder: (_) => Container(
+      padding: const EdgeInsets.all(TSizes.lg),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const RowTextButton(title: 'Select Address', showActionButton: false),
+          FutureBuilder(
+            future: getAllUserAddresses(),
+            builder: (_, snapshot) {
+              /// Helper Function: Handle Loader, No Record, OR ERROR Message
+              final response = TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot);
+              if (response != null) return response;
+              
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: snapshot.data!.length,
+                itemBuilder: (_, index) => ESingleAddress(
+                  address: snapshot.data![index],
+                  onTap: () async {
+                    await selectAddress(snapshot.data![index]);
+                    Get.back();
+                  },
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: TSizes.defaultSpace * 2),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () => Get.to(() => const AddNewAddressScreen()),
+              child: const Text("Add new address"),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
 
 
   void resetFormField(){

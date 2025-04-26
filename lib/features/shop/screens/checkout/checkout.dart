@@ -4,6 +4,7 @@ import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:shop_ease/common/widgets/products/cart/upon_widget.dart';
 import 'package:shop_ease/common/widgets/success_screen/success_screen.dart';
+import 'package:shop_ease/features/shop/controllers/product/cart_controller.dart';
 import 'package:shop_ease/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:shop_ease/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:shop_ease/features/shop/screens/checkout/widgets/billing_amount_section.dart';
@@ -19,6 +20,10 @@ class CheckoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
+
     final theme = Theme.of(context).textTheme;
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
