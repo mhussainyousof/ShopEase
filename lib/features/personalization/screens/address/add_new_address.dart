@@ -4,11 +4,6 @@ import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/features/personalization/controllers/address_controller.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/validators/validation.dart';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
-
 class AddNewAddressScreen extends StatelessWidget {
   const AddNewAddressScreen({super.key});
 

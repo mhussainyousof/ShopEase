@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_ease/data/repositories/address/address_repository.dart';
-import 'package:shop_ease/data/repositories/authentication/authentication_repository.dart';
 import 'package:shop_ease/features/personalization/models/address_model.dart';
 import 'package:shop_ease/utils/helpers/network_manager.dart';
 import 'package:shop_ease/utils/loaders/circular_loader.dart';
