@@ -4,7 +4,6 @@ import 'package:shop_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
 import 'package:shop_ease/features/shop/models/cart_item_model.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
-import 'package:shop_ease/utils/constants/image_strings.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
 import 'package:shop_ease/utils/helpers/helper_functions.dart';
 

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:shop_ease/common/widgets/appbar/appbar.dart';
 import 'package:shop_ease/common/widgets/loaders/animation_loader.dart';
 import 'package:shop_ease/features/shop/controllers/product/cart_controller.dart';
