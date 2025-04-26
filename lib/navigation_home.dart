@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:shop_ease/features/personalization/screens/settings/settings.dart';
 import 'package:shop_ease/features/shop/screens/home/home.dart';
 import 'package:shop_ease/features/shop/screens/store/store.dart';
 import 'package:shop_ease/features/shop/screens/wishlist/wishlist.dart';
@@ -30,7 +29,7 @@ class NavigationHome extends StatelessWidget {
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home',),
             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store',),
             NavigationDestination(icon: Icon(Iconsax.heart), label: 'WishList',),
-            NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile',),
+            // NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile',),
           ],
         ),
 
@@ -48,7 +47,7 @@ class NavigationController extends GetxController {
     HomeScreen(),
     StoreScreen(),
     FavoriteScreen(),
-    SettingScreen(),
+    // SettingScreen(),
   ];
 }
 
