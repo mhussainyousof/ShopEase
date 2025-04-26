@@ -37,7 +37,7 @@ class StoreScreen extends StatelessWidget {
           ),
           actions: [
             BagCountWidget(
-              onPressed: () {},
+              
             )
           ],
         ),

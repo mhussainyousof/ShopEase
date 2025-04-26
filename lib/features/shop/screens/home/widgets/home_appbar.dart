@@ -45,7 +45,7 @@ class HomeAppbar extends StatelessWidget {
         //! Shopping bag icon with item count
         BagCountWidget(
           iconColor: TColors.white,
-          onPressed: () {},
+        
         ),
       ],
     );

@@ -7,11 +7,12 @@ import 'package:shop_ease/utils/helpers/helper_functions.dart';
 
 class EProductQuantityWithAddAndRemoveButton extends StatelessWidget {
   const EProductQuantityWithAddAndRemoveButton({
-    super.key,
+    super.key, required this.quantity, this.add, this.remove,
    
   });
 
-  
+  final int quantity;
+  final VoidCallback? add, remove;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,10 @@ class EProductQuantityWithAddAndRemoveButton extends StatelessWidget {
           color: dark ? TColors.white : TColors.black,
           backgroundColor:
               dark ? TColors.darkerGrey : TColors.light,
+              onPressed: remove,
         ),
         SizedBox(width: TSizes.spaceBtwItems),
-        Text('2', style: theme.titleSmall),
+        Text(quantity.toString(), style: theme.titleSmall),
         SizedBox(width: TSizes.spaceBtwItems),
         ECircularIcon(
           icon: Iconsax.add,
@@ -39,6 +41,7 @@ class EProductQuantityWithAddAndRemoveButton extends StatelessWidget {
           size: TSizes.md,
           color: TColors.white,
           backgroundColor: TColors.primary,
+          onPressed: add,
         ),
       ],
     );

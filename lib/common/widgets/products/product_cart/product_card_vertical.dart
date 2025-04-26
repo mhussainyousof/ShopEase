@@ -11,6 +11,7 @@ import 'package:shop_ease/common/widgets/texts/product_price_text.dart';
 import 'package:shop_ease/common/widgets/texts/product_title._text.dart';
 import 'package:shop_ease/features/shop/controllers/product/product_controller.dart';
 import 'package:shop_ease/features/shop/models/product_model.dart';
+import 'package:shop_ease/features/shop/screens/home/widgets/add_to_cart_button.dart';
 import 'package:shop_ease/features/shop/screens/product_detail/product_detail.dart';
 import 'package:shop_ease/utils/constants/colors.dart';
 import 'package:shop_ease/utils/constants/sizes.dart';
@@ -139,26 +140,9 @@ class EProductCardVertical extends StatelessWidget {
                     ],
                   ),
                 ), 
-        
-                Container(
-                  decoration: BoxDecoration(
-                    color: TColors.dark,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(TSizes.cardRadiusMd),
-                        bottomRight:
-                            Radius.circular(TSizes.productImageRadius)),
-                  ),
-                  child: SizedBox(
-                    width: TSizes.iconLg * 1.2,
-                    height: TSizes.iconLg * 1.2,
-                    child: Center(
-                      child: Icon(
-                        Iconsax.add,
-                        color: TColors.white,
-                      ),
-                    ),
-                  ),
-                ),
+        //! add to card
+
+                AddToCartButton(product: productModel),
               ],
             ),
           ],
@@ -167,3 +151,4 @@ class EProductCardVertical extends StatelessWidget {
     );
   }
 }
+
